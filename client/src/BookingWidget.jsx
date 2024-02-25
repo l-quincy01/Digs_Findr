@@ -13,14 +13,14 @@ export default function BookingWidget({ place }) {
     const [numberOfGuests, setNumberOfGuests] = useState();
     const [name, setName] = useState();
     const [phoneNumber, setPhoneNumber] = useState();
-    const [redirect, setRedirect] = useState() ;
-    const {user} = useContext(UserContext)
+    const [redirect, setRedirect] = useState();
+    const { user } = useContext(UserContext)
 
- useEffect(() => {
-    if(user) {
-        setName(user.name)
-    }
- }, [user])
+    useEffect(() => {
+        if (user) {
+            setName(user.name)
+        }
+    }, [user])
 
     let numberOfDays = 0;
     if (checkIn && checkOut) {
@@ -40,17 +40,17 @@ export default function BookingWidget({ place }) {
         const bookingID = response.data._id;
         setRedirect(`/account/bookings/${bookingID}`);
     }
-    
 
-    if(redirect){
-       return  <Navigate to ={redirect} />
+
+    if (redirect) {
+        return <Navigate to={redirect} />
     }
 
     return (
         <div className="my-2">
             <div className="bg-white shadow p-4 rounded-2xl">
                 <div className="text-2xl text-center">
-                    Price: R{place.price} / pernight
+                    Price: R{place.price} / night
                 </div>
                 <div className=" border rounded-2xl mt-4">
                     <div className="flex items-center justify-evenly">
@@ -76,7 +76,7 @@ export default function BookingWidget({ place }) {
                             <input className=""
                                 type="text"
                                 value={name} onChange={ev => setName(ev.target.value)} />
-                             Your Phone Number:
+                            Your Phone Number:
                             <input className=""
                                 type="text"
                                 value={phoneNumber} onChange={ev => setPhoneNumber(ev.target.value)} />
@@ -84,9 +84,8 @@ export default function BookingWidget({ place }) {
                     )
                     }
                 </div>
-                <button onClick={bookPlace} className="primary mt-4">Book This Place</button>
 
-                <div className="">
+                <div className="mt-2">
                     {numberOfDays > 0 ? (
 
                         <div className="text-gray-500 flex">
@@ -102,8 +101,10 @@ export default function BookingWidget({ place }) {
                             </div>
                         )
                     )}
-
                 </div>
+
+                <button onClick={bookPlace} className="primary mt-4">Book This Place</button>
+
             </div>
         </div>
     );

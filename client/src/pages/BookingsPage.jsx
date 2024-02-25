@@ -19,8 +19,8 @@ export default function BookingsPage() {
             <AccountNavigation />
             <div>
                 {bookings?.length > 0 && bookings.map(booking => (
-                    <Link to = {`/account/bookings/${booking._id}`} key={booking._id} className=" cursor-pointer flex gap-4 bg-gray-200 rounded-xl overflow-hidden ">
-                        <div className="w-48 h-full">
+                    <Link to = {`/account/bookings/${booking._id}`} key={booking._id} className=" my-4 cursor-pointer flex gap-4 bg-gray-200 rounded-xl overflow-hidden ">
+                        <div className="w-48 ">
                             <PlaceImg place={booking.place} />
                         </div>
                         <div className="py-3">
@@ -35,11 +35,11 @@ export default function BookingsPage() {
 
                             <div className="   py-1">
                                 <span className=" text-gray-500 border-b border-gray-300"> {booking.place.price} ZAR x {differenceInCalendarDays(new Date(booking.checkOut), new Date(booking.checkIn))} nights
-                                </span> <span className="text-gray-500 right-40">{booking.place.price}</span>
+                                </span> <span className="text-gray-500 right-40">{booking.place.price * differenceInCalendarDays(new Date(booking.checkOut), new Date(booking.checkIn))} ZAR </span>
                                 <br />
                                 <span className=" text-gray-500 border-b border-gray-300">Service fee : 0 ZAR</span>
                                 <br />
-                                <span className="border-b border-gray-600"> Total before taxes: ZAR {booking.price} </span>
+                                <span className="border-b border-gray-600"> Total before taxes:  {booking.price} ZAR </span>
                             </div>
                         </div>
 
