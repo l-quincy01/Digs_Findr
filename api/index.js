@@ -234,10 +234,8 @@ function getUserData(req){
 }
 
 app.get('/bookings', async (req,res) => {
-
    const userData = await getUserData(req) ;
    res.json( await BookingModel.find({user: userData.id}).populate('place'))
-    
 })
 
 app.listen(4000);
