@@ -5,7 +5,7 @@ export default function Header() {
   const { user } = useContext(UserContext);
 
   return (
-    <header className=" px-6 sticky top-0 bg-white h-40 w-full items-baseline flex space-y-8  justify-between shadow-lg">
+    <header className=" z-10 px-6 sticky top-0 bg-white h-40 w-full items-baseline flex space-y-8  justify-between shadow-lg">
       <Link to={"/"} className="flex items-center gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
