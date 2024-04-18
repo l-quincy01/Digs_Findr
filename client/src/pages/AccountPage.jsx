@@ -70,12 +70,68 @@ export default function AccountPage() {
           </div>
         </div>
 
+        {/* NEEDS OWN COMPONENET */}
         <div className="mx-4">
           <div className="pb-4 ">
             {!showInputField && (
               <>
                 <div className=" flex items-baseline justify-between">
                   <h2 className="text-md mt-4 flex-grow ">Legal Name</h2>
+
+                  <div
+                    className="underline flex-grow text-md cursor-pointer relative bottom-2 right-2"
+                    onClick={handleShowInputField}
+                  >
+                    Edit
+                  </div>
+                </div>
+                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <div className=" flex items-baseline justify-between">
+                  <h2 className="text-md mt-4 flex-grow ">Email Address</h2>
+
+                  <div
+                    className="underline flex-grow text-md cursor-pointer relative bottom-2 right-2"
+                    onClick={handleShowInputField}
+                  >
+                    Edit
+                  </div>
+                </div>
+                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <div className=" flex items-baseline justify-between">
+                  <h2 className="text-md mt-4 flex-grow "> Phone Number</h2>
+
+                  <div
+                    className="underline flex-grow text-md cursor-pointer relative bottom-2 right-2"
+                    onClick={handleShowInputField}
+                  >
+                    Edit
+                  </div>
+                </div>
+                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <div className=" flex items-baseline justify-between">
+                  <h2 className="text-md mt-4 flex-grow ">Government ID</h2>
+
+                  <div
+                    className="underline flex-grow text-md cursor-pointer"
+                    onClick={handleShowInputField}
+                  >
+                    Edit
+                  </div>
+                </div>
+                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <div className=" flex items-baseline justify-between">
+                  <h2 className="text-md mt-4 flex-grow ">Gender</h2>
+
+                  <div
+                    className="underline flex-grow text-md cursor-pointer"
+                    onClick={handleShowInputField}
+                  >
+                    Edit
+                  </div>
+                </div>
+                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <div className=" flex items-baseline justify-between">
+                  <h2 className="text-md mt-4 flex-grow ">Address</h2>
 
                   <>
                     <div
@@ -88,11 +144,9 @@ export default function AccountPage() {
                 </div>
                 <span className="text-sm  text-gray-600 ">{user.name}</span>
               </>
-            )}
+            )}{" "}
+            {/* INPUT FIELDS */}
             {showInputField && (
-              //   <>
-              //
-              //   </>
               <>
                 <div className=" flex items-baseline justify-between">
                   <h2 className="text-md mt-4 flex-grow ">Legal Name</h2>
@@ -119,6 +173,7 @@ export default function AccountPage() {
           </div>
           <div className="border-b w-2/3"></div>
         </div>
+        {/* NEEDS OWN COMPONENET */}
       </div>
 
       {subpage === "profile" && (
