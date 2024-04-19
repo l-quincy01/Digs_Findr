@@ -5,7 +5,7 @@ export default function Header() {
   const { user } = useContext(UserContext);
 
   return (
-    <header className=" z-10 px-6 sticky top-0 bg-white h-40 w-full items-baseline flex space-y-8  justify-between shadow-lg">
+    <header className=" z-10 px-6 sticky top-0 bg-white h-40 w-full items-center flex space-y-8  justify-between shadow-lg">
       <Link to={"/"} className="flex items-center gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ export default function Header() {
         <span className="font-bold text-xl">Digs Findr</span>
       </Link>
 
-      <div className="  w-2/5 flex items-center justify-center gap-2 border border-gray-300 rounded-full p-2 shadow-md shadow-gray-300">
+      <div className=" relative  w-2/5 flex items-center justify-center gap-2 border border-gray-300 rounded-full p-2 shadow-md shadow-gray-300">
         <input
           type="text"
           className="h-full w-full flex bg-transparent outline-none border-none"
