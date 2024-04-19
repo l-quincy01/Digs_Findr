@@ -96,7 +96,7 @@ export default function AccountPage() {
                     Edit
                   </div>
                 </div>
-                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <span className="text-sm  text-gray-600 ">{user.email}</span>
                 <div className=" flex items-baseline justify-between">
                   <h2 className="text-md mt-4 flex-grow "> Phone Number</h2>
 
@@ -107,7 +107,9 @@ export default function AccountPage() {
                     Edit
                   </div>
                 </div>
-                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <span className="text-sm  text-gray-600 ">
+                  {user.phoneNumber}
+                </span>
                 <div className=" flex items-baseline justify-between">
                   <h2 className="text-md mt-4 flex-grow ">Government ID</h2>
 
@@ -118,7 +120,9 @@ export default function AccountPage() {
                     Edit
                   </div>
                 </div>
-                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <span className="text-sm  text-gray-600 ">
+                  {user.governmentID}
+                </span>
                 <div className=" flex items-baseline justify-between">
                   <h2 className="text-md mt-4 flex-grow ">Gender</h2>
 
@@ -129,7 +133,7 @@ export default function AccountPage() {
                     Edit
                   </div>
                 </div>
-                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <span className="text-sm  text-gray-600 ">{user.gender}</span>
                 <div className=" flex items-baseline justify-between">
                   <h2 className="text-md mt-4 flex-grow ">Address</h2>
 
@@ -142,7 +146,9 @@ export default function AccountPage() {
                     </div>
                   </>
                 </div>
-                <span className="text-sm  text-gray-600 ">{user.name}</span>
+                <span className="text-sm  text-gray-600 ">
+                  {user.userAddress}
+                </span>
               </>
             )}{" "}
             {/* INPUT FIELDS */}

@@ -5,6 +5,8 @@ import axios from "axios";
 import AccountNavigation from "./AccountNavigation";
 import { Navigate, useParams } from "react-router-dom";
 import { MdApartment } from "react-icons/md";
+import Furniture from "../Furniture";
+import PrefferedTenants from "../PrefferedTenants";
 // import { FaHouseUser } from "react-icons/fa";
 // import { BsBuildingsFill } from "react-icons/bs";
 // import { GiFamilyHouse } from "react-icons/gi";
@@ -13,13 +15,16 @@ export default function PlacesFormPage() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [placeOffers, setPlaceOffers] = useState([]);
+
   const [description, setDescription] = useState("");
   const [addedPhotos, setAddedPhotos] = useState([]);
-  const [perks, setPerks] = useState([]);
+  // const [perks, setPerks] = useState([]);
   const [extraInfo, setExtraInfo] = useState("");
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
-  const [maxGuests, setMaxGuests] = useState(1);
+  const [furnitureIncluded, setFurnitureIncluded] = useState([]);
+  const [preferredTenants, setPreferredTenants] = useState([]);
+
   const [redirect, setRedirect] = useState(false);
   const [price, setPrice] = useState(100);
 
@@ -31,13 +36,16 @@ export default function PlacesFormPage() {
       const { data } = response;
       setTitle(data.title);
       setAddress(data.address);
+      setPropertyType(data.propertyType);
+      setPlaceOffers(data.placeOffers);
+
       setDescription(data.description);
       setAddedPhotos(data.photos);
-      setPerks(data.perks);
+      // setPerks(data.perks);
       setExtraInfo(data.extraInfo);
-      setCheckIn(data.checkIn);
-      setCheckOut(data.checkOut);
-      setMaxGuests(data.maxGuests);
+      setFurnitureIncluded(data.furnitureIncluded);
+      setPreferredTenants(data.preferredTenants);
+
       setPrice(data.price);
     });
   }, [id]);
@@ -64,13 +72,14 @@ export default function PlacesFormPage() {
     const placeData = {
       title,
       address,
+      propertyType,
+      placeOffers,
       addedPhotos,
       description,
-      perks,
+      // perks,
       extraInfo,
-      checkIn,
-      checkOut,
-      maxGuests,
+      furnitureIncluded,
+      preferredTenants,
       price,
     };
 
@@ -91,7 +100,7 @@ export default function PlacesFormPage() {
     <div>
       <AccountNavigation />
 
-      <form onSubmit={savePlace}>
+      <form className="p-6" onSubmit={savePlace}>
         {preInput("Title", "Give your accomodation a suitable heading")}
         <input
           type="text"
@@ -112,19 +121,42 @@ export default function PlacesFormPage() {
           "Property type",
           "What type of property best describes where you are listing your available rooms?"
         )}
-        <div className=" flex   justify-center items-center gap-4 pt-2">
-          <div className=" flex flex-col items-center justify-center  max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100   dark:hover:bg-gray-200">
-            <MdApartment /> Apartment
+        <div className="flex justify-center items-center gap-4 pt-2">
+          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
+            <input
+              type="text"
+              className="hidden"
+              value="House"
+              onChange={(ev) => setPropertyType(ev.target.value)}
+            />
+            <MdApartment /> House
           </div>
-          <div className=" flex flex-col items-center justify-center  max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100   dark:hover:bg-gray-200">
-            <MdApartment /> Apartment
+          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
+            <input
+              type="text"
+              className="hidden"
+              value="Apartment Block"
+              onChange={(ev) => setPropertyType(ev.target.value)}
+            />
+            <MdApartment /> Apartment Block
           </div>
-
-          <div className=" flex flex-col items-center justify-center  max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100   dark:hover:bg-gray-200">
-            <MdApartment /> Apartment
+          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
+            <input
+              type="text"
+              className="hidden"
+              value="Flat let"
+              onChange={(ev) => setPropertyType(ev.target.value)}
+            />
+            <MdApartment /> Flat let
           </div>
-          <div className=" flex flex-col items-center justify-center  max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100   dark:hover:bg-gray-200">
-            <MdApartment /> Apartment
+          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
+            <input
+              type="text"
+              className="hidden"
+              value="Student Residence"
+              onChange={(ev) => setPropertyType(ev.target.value)}
+            />
+            <MdApartment /> Student Residence
           </div>
         </div>
 
@@ -139,7 +171,7 @@ export default function PlacesFormPage() {
 
         {preInput("Perks", "Select all the perks for your accomodation")}
         <div className="mt-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
-          <Perks selected={perks} onChange={setPerks} />
+          <Perks selected={placeOffers} onChange={setPlaceOffers} />
         </div>
 
         {preInput("Extra info", "House rules")}
@@ -149,38 +181,27 @@ export default function PlacesFormPage() {
         ></textarea>
 
         {preInput(
-          "Check in and out times and max guests",
-          "Add check in and checkout times"
+          "Furniture & appliances included",
+          "Select the furniture included with your place"
         )}
-        <div className="grid  grid-cols-3 gap-2 md:grid-cols-4">
-          <div>
-            <h3 className="mt-2 -mb-1">Check in time</h3>
-            <input
-              type="text"
-              value={checkIn}
-              onChange={(ev) => setCheckIn(ev.target.value)}
-              placeholder="14:00"
-            />
-          </div>
-          <div>
-            <h3 className="mt-2 -mb-1">Check out time</h3>
-            <input
-              type="text"
-              value={checkOut}
-              onChange={(ev) => setCheckOut(ev.target.value)}
-              placeholder="11:00"
-            />
-          </div>
-          <div>
-            <h3 className="mt-2 -mb-1">Max number of guests </h3>
-            <input
-              type="number"
-              value={maxGuests}
-              onChange={(ev) => setMaxGuests(ev.target.value)}
-              placeholder="5 Guests"
-            />
-          </div>
+        <div className="mt-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+          <Furniture
+            selected={furnitureIncluded}
+            onChange={setFurnitureIncluded}
+          />
+        </div>
 
+        {preInput(
+          "Preffered Tenants ",
+          "Select the tenants you prefer to stay at your place"
+        )}
+        <div className="mt-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+          <PrefferedTenants
+            selected={preferredTenants}
+            onChange={setPlaceOffers}
+          />
+        </div>
+        <div className="grid  grid-cols-3 gap-2 md:grid-cols-4">
           <div>
             <h3 className="mt-2 -mb-1">Price per night </h3>
             <input

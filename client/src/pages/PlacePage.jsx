@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import BookingWidget from "../BookingWidget";
 import PlaceGallery from "../PlaceGallery";
 import LocationAddress from "../LocationAddress";
-import { HiBuildingLibrary, HiCheckBadge, HiHome } from "react-icons/hi2";
+
 import {
   PiCertificate,
   PiCouch,
@@ -15,14 +15,14 @@ import {
 import { IoBedOutline, IoWifi } from "react-icons/io5";
 import { FaRegUser, FaStar, FaSwimmingPool } from "react-icons/fa";
 import { MdOutlineBedroomChild } from "react-icons/md";
-import { HiHomeModern } from "react-icons/hi2";
+import { HiHome, HiHomeModern } from "react-icons/hi2";
 import { MdApartment } from "react-icons/md";
 import { CgGym } from "react-icons/cg";
 import { MdDeck } from "react-icons/md";
 import { GoPeople } from "react-icons/go";
 import { PiBedBold } from "react-icons/pi";
 import { MdOutlineYard } from "react-icons/md";
-import { IoStarSharp } from "react-icons/io5";
+
 import Comments from "../Comments";
 import { TbFridge } from "react-icons/tb";
 import { LuMicrowave } from "react-icons/lu";
