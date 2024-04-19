@@ -203,7 +203,7 @@ export default function PlacesFormPage() {
         </div>
         <div className="grid  grid-cols-3 gap-2 md:grid-cols-4">
           <div>
-            <h3 className="mt-2 -mb-1">Price per night </h3>
+            <h3 className="mt-2 -mb-1">Price / month </h3>
             <input
               type="number"
               value={price}
