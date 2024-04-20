@@ -157,16 +157,16 @@ GET /bookings
 ## Screenshots
 
 <div style="display:flex;" >
-<img  src="1a.png" width="19%" >
-<img style="margin-left:10px;" src="2a.png" width="19%" >
-<img style="margin-left:10px;" src="3a.png" width="19%" >
-<img style="margin-left:10px;" src="4a.png" width="19%" >
-<img style="margin-left:10px;" src="5.png" width="19%" >
-<img style="margin-left:10px;" src="6.png" width="19%" >
-<img style="margin-left:10px;" src="6a.png" width="19%" >
-<img style="margin-left:10px;" src="7a.png" width="19%" >
-<img style="margin-left:10px;" src="8.png" width="19%" >
-<img style="margin-left:10px;" src="8a.png" width="19%" >
+<img  src="/screenshots/1a.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/2a.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/3a.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/4a.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/5.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/6.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/6a.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/7a.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/8.png" width="19%" >
+<img style="margin-left:10px;" src="/screenshots/8a.png" width="19%" >
 
 </div>
 
