@@ -203,14 +203,14 @@ export default function BookingWidget({ place }) {
           </div>
 
           <div className=" border-t mt-2 py-2">
-            <span className=" font-bold">Landlord Name</span>
+            <span className=" font-bold"> PamGolding</span>
             <div className="flex">
               <img
                 className=" w-1/4  rounded-full  "
-                src="https://digsconnect.imgix.net/profile_pictures/image_cropper_1599924511152.jpg?fit=crop&h=200&ixlib=python-4.0.0&w=200"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyprjrXx_niDRK3eAQ425eqkDHSdca7_Gv852ZWm80Q_Pfkg2rYv3AAMMYqAxNV_PzeaM&usqp=CAU"
                 alt="Landlord image"
               />
-              <div className=" flex flex-col justify-center ml-4">
+              {/* <div className=" flex flex-col justify-center ml-4">
                 <label className="flex gap-2 items-baseline">
                   <LuCalendarDays /> Joined Digs Findr{" "}
                   <span className="font-bold"> Feb 2024</span>
@@ -223,13 +223,11 @@ export default function BookingWidget({ place }) {
                   <BiMessageDetail /> Reply Rate{" "}
                   <IoMdInformationCircleOutline className="scale-125 right-12 absolute cursor-pointer" />
                 </label>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
         <div className="flex items-center gap-2 w-full h-1/10 bg-cyan-600 text-white rounded-b-2xl font-bold p-4">
-          <LuBadgeCheck />
-          Trusted Landlord
           <IoMdInformationCircleOutline className="scale-125 right-12 absolute cursor-pointer" />
         </div>
       </div>

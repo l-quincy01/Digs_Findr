@@ -58,10 +58,10 @@ export default function AccountPage() {
                 alt=""
               />
               <div className="m-3">
-                <div className="font-semibold flex items-center">
+                <div className="font-semibold flex items-center gap-3">
                   <MdOutlineVerified /> Account verified
                 </div>
-                <div className="font-semibold flex items-center">
+                <div className="font-semibold flex items-center gap-3">
                   <IoCalendarNumberOutline />
                   Joined 2024
                 </div>

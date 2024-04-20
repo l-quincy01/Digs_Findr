@@ -7,21 +7,7 @@ export default function Header() {
   return (
     <header className=" z-10 px-6 sticky top-0 bg-white h-40 w-full items-center flex space-y-8  justify-between shadow-lg">
       <Link to={"/"} className="flex items-center gap-1">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-9 h-9 -rotate-90"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-          />
-        </svg>
-        <span className="font-bold text-xl">Digs Findr</span>
+        <span className="font-bold text-2xl">Digs Findr</span>
       </Link>
 
       <div className=" relative  w-2/5 flex items-center justify-center gap-2 border border-gray-300 rounded-full p-2 shadow-md shadow-gray-300">

@@ -53,7 +53,7 @@ export default function PlacePage() {
       <div className=" mt-8 gap-8 grid grid-cols-1  md:grid-cols-[2fr_1fr]">
         <div>
           <h1 className="text-2xl">{place.title}</h1>
-          <div className="text-primary my-2"> Property Type</div>
+          <div className="text-primary my-2"> {place.propertyType}</div>
           <div className="flex gap-2 items-center font-semibold">
             <FaStar /> 4.42 ·{" "}
             <span className="underline cursor-pointer"> 61 Reviews </span>
@@ -61,7 +61,7 @@ export default function PlacePage() {
           <LocationAddress>{place.address}</LocationAddress>
           <div className="font-semibold">
             1 Km Away from{" "}
-            <span className="underline cursor-pointer">Monash</span>
+            <span className="underline cursor-pointer">Rhodes Univeristy</span>
           </div>
           <div className="my-4">
             <h2 className="fonr-semibold text-2xl">Description</h2>
@@ -75,7 +75,7 @@ export default function PlacePage() {
             <label className="flex items-baseline gap-2">
               <HiHome /> House
             </label>
-            <label className="flex items-baseline gap-2">
+            {/* <label className="flex items-baseline gap-2">
               <HiHomeModern /> Modern House
             </label>
             <label className="flex items-baseline gap-2">
@@ -83,26 +83,26 @@ export default function PlacePage() {
             </label>
             <label className="flex items-baseline gap-2">
               <IoWifi /> Wi Fi included
-            </label>
+            </label> */}
             <label className="flex items-baseline gap-2">
               <PiCertificate /> NSFAS Accredited
             </label>
-            <label className="flex items-baseline gap-2">
+            {/* <label className="flex items-baseline gap-2">
               <MdOutlineBedroomChild /> Bachelor
-            </label>
+            </label> */}
             <label className="flex items-baseline gap-2">
-              <PiBedBold /> 1* Bedroom
+              <PiBedBold /> 1 Bedroom
             </label>
-            <label className="flex items-baseline gap-2">
+            {/* <label className="flex items-baseline gap-2">
               <GoPeople /> Shared
-            </label>
+            </label> */}
             <label className="flex items-baseline gap-2">
               <PiCouch /> Furnished
             </label>
             <label className="flex items-baseline gap-2">
               <MdOutlineYard /> Yard
             </label>
-            <label className="flex items-baseline gap-2">
+            {/* <label className="flex items-baseline gap-2">
               <FaSwimmingPool /> Swimming Pool
             </label>
             <label className="flex items-baseline gap-2">
@@ -110,7 +110,7 @@ export default function PlacePage() {
             </label>
             <label className="flex items-baseline gap-2">
               <MdDeck /> Deck
-            </label>
+            </label> */}
           </div>
           <h2 className="fonr-semibold text-2xl">Things to know</h2>
           {place.description}
@@ -121,13 +121,13 @@ export default function PlacePage() {
             <div className="flex items-center gap-2">
               <TbFridge /> Fridge
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <PiTelevisionSimpleThin /> Tv
-            </div>
+            </div> */}
             <div className="flex items-center gap-2">
               <LuMicrowave /> Microwave
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <IoBedOutline /> Bed
             </div>
             <div className="flex items-center gap-2">
@@ -135,7 +135,7 @@ export default function PlacePage() {
             </div>
             <div className="flex items-center gap-2">
               <GiToaster /> Toaster
-            </div>
+            </div> */}
           </div>
           <button className=" bg-white border flex gap-2 items-center justify-center p-6 text-sm font-semibold">
             Show all
@@ -151,7 +151,7 @@ export default function PlacePage() {
             <div className="flex items-center gap-2">
               <PiStudentBold /> Post Graduate
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <PiUsersThree /> Young Professionals
             </div>
             <div className="flex items-center gap-2">
@@ -159,7 +159,7 @@ export default function PlacePage() {
             </div>
             <div className="flex items-center gap-2">
               <FaRegUser /> Other
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="  sticky">
