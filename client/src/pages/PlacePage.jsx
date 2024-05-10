@@ -53,15 +53,18 @@ export default function PlacePage() {
       <div className=" mt-8 gap-8 grid grid-cols-1  md:grid-cols-[2fr_1fr]">
         <div>
           <h1 className="text-2xl">{place.title}</h1>
-          <div className="text-primary my-2"> {place.propertyType}</div>
+          <div className="text-primary my-2">
+            {" "}
+            {place.propertyType + " " + place.webRef}{" "}
+          </div>
           <div className="flex gap-2 items-center font-semibold">
             <FaStar /> 4.42 ·{" "}
             <span className="underline cursor-pointer"> 61 Reviews </span>
           </div>
           <LocationAddress>{place.address}</LocationAddress>
           <div className="font-semibold">
-            1 Km Away from{" "}
-            <span className="underline cursor-pointer">Rhodes Univeristy</span>
+            {place.availability}
+            {/* <span className="underline cursor-pointer">Rhodes Univeristy</span> */}
           </div>
           <div className="my-4">
             <h2 className="fonr-semibold text-2xl">Description</h2>
@@ -113,7 +116,7 @@ export default function PlacePage() {
             </label> */}
           </div>
           <h2 className="fonr-semibold text-2xl">Things to know</h2>
-          {place.description}
+          {place.extraInfo}
           <h2 className="fonr-semibold text-2xl mt-4 mb-2">
             Furniture & appliances included
           </h2>

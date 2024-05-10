@@ -11,20 +11,30 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 import { FaRegFlag, FaRegHeart } from "react-icons/fa";
 
 export default function BookingWidget({ place }) {
-  const [checkIn, setCheckIn] = useState();
-  const [checkOut, setCheckOut] = useState();
-  const [numberOfGuests, setNumberOfGuests] = useState();
+  // const [checkIn, setCheckIn] = useState();
+  // const [checkOut, setCheckOut] = useState();
+  // const [numberOfGuests, setNumberOfGuests] = useState();
   const [name, setName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+
   const [redirect, setRedirect] = useState();
   const [showAgent, setShowAgent] = useState(false);
-  const [agentName, setAgentName] = useState();
-  const [agentPhoneNumber, setAgentPhoneNumber] = useState();
   const { user } = useContext(UserContext);
 
   useEffect(() => {
     if (user) {
       setName(user.name);
+      setPhoneNumber(user.phoneNumber);
+      setEmail(user.email);
+      setMessage(
+        "Hi, " +
+          place.agentName +
+          ", I am interested in this property (Web Ref: " +
+          place.webRef +
+          ") please contact me."
+      );
     }
   }, [user]);
 
@@ -37,18 +47,18 @@ export default function BookingWidget({ place }) {
 
   let numberOfDays = 0;
 
-  if (checkIn && checkOut) {
-    numberOfDays = differenceInCalendarDays(
-      new Date(checkOut),
-      new Date(checkIn)
-    );
-  }
+  // if (checkIn && checkOut) {
+  //   numberOfDays = differenceInCalendarDays(
+  //     new Date(checkOut),
+  //     new Date(checkIn)
+  //   );
+  // }
 
   async function bookPlace() {
     const response = await axios.post("/bookings", {
-      checkIn,
-      checkOut,
-      numberOfGuests,
+      // checkIn,
+      // checkOut,
+      // numberOfGuests,
       name,
       phoneNumber,
       place: place._id,
@@ -151,6 +161,7 @@ export default function BookingWidget({ place }) {
               <input
                 className=""
                 type="text"
+                placeholder="082 100 0000"
                 value={phoneNumber}
                 onChange={(ev) => setPhoneNumber(ev.target.value)}
               />
@@ -158,16 +169,15 @@ export default function BookingWidget({ place }) {
               <input
                 className=""
                 type="text"
-                value={phoneNumber}
-                //   onChange={(ev) => setPhoneNumber(ev.target.value)}
+                placeholder="you@example.com"
+                value={email}
+                onChange={(ev) => setEmail(ev.target.value)}
               />
               Message:
-              <input
-                className=""
-                type="text"
-                value={phoneNumber}
-                //   onChange={(ev) => setPhoneNumber(ev.target.value)}
-              />
+              <textarea
+                value={message}
+                onChange={(ev) => setMessage(ev.target.value)}
+              ></textarea>
             </div>
           </div>
           <div className="grid gap-x-4 grid-cols-[2fr_1fr] ]">
@@ -194,8 +204,8 @@ export default function BookingWidget({ place }) {
                     Hide Agent Contact numbers
                   </button>
                   <div className="py-4 px-4 items-center justify-evenly border-t">
-                    Name: AGENT NAME <br />
-                    Number: AGENT NUMBER
+                    Name: {" " + place.agentName} <br />
+                    Number: {" " + place.agentContact}
                   </div>
                 </>
               )}

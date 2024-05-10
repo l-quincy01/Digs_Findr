@@ -76,7 +76,6 @@ export default function PlacesFormPage() {
       placeOffers,
       addedPhotos,
       description,
-      // perks,
       extraInfo,
       furnitureIncluded,
       preferredTenants,
@@ -94,6 +93,16 @@ export default function PlacesFormPage() {
 
   if (redirect) {
     return <Navigate to={"/account/places"} />;
+  }
+
+  function propertyTypeSelector(value) {
+    return `cursor-pointer flex flex-col items-center justify-center max-w-md p-6 border border-gray-200 rounded-lg shadow   ${
+      propertyType === value ? "bg-primary text-white" : "bg-white"
+    }`;
+  }
+
+  function togglePropertyType(value) {
+    setPropertyType(propertyType === value ? "" : value);
   }
 
   return (
@@ -122,41 +131,36 @@ export default function PlacesFormPage() {
           "What type of property best describes where you are listing your available rooms?"
         )}
         <div className="flex justify-center items-center gap-4 pt-2">
-          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
-            <input
-              type="text"
-              className="hidden"
-              value="House"
-              onChange={(ev) => setPropertyType(ev.target.value)}
-            />
+          <div
+            className={propertyTypeSelector("House")}
+            onClick={() => togglePropertyType("House")}
+          >
+            <input type="text" className="hidden" value="House" />
             <MdApartment /> House
           </div>
-          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
-            <input
-              type="text"
-              className="hidden"
-              value="Apartment Block"
-              onChange={(ev) => setPropertyType(ev.target.value)}
-            />
-            <MdApartment /> Apartment Block
-          </div>
-          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
-            <input
-              type="text"
-              className="hidden"
-              value="Flat let"
-              onChange={(ev) => setPropertyType(ev.target.value)}
-            />
-            <MdApartment /> Flat let
-          </div>
-          <div className="flex flex-col items-center justify-center max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-200">
-            <input
-              type="text"
-              className="hidden"
-              value="Student Residence"
-              onChange={(ev) => setPropertyType(ev.target.value)}
-            />
+
+          <div
+            className={propertyTypeSelector("Student Residence")}
+            onClick={() => togglePropertyType("Student Residence")}
+          >
+            <input type="text" className="hidden" value="House" />
             <MdApartment /> Student Residence
+          </div>
+
+          <div
+            className={propertyTypeSelector("Apartment")}
+            onClick={() => togglePropertyType("Apartment")}
+          >
+            <input type="text" className="hidden" value="House" />
+            <MdApartment /> Apartment
+          </div>
+
+          <div
+            className={propertyTypeSelector("Flat Let")}
+            onClick={() => togglePropertyType("Flat Let")}
+          >
+            <input type="text" className="hidden" value="House" />
+            <MdApartment /> Flat Let
           </div>
         </div>
 
@@ -169,7 +173,10 @@ export default function PlacesFormPage() {
           onChange={(ev) => setDescription(ev.target.value)}
         ></textarea>
 
-        {preInput("Perks", "Select all the perks for your accomodation")}
+        {preInput(
+          "Place offers",
+          "Select all the perks that your accomodation offers"
+        )}
         <div className="mt-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
           <Perks selected={placeOffers} onChange={setPlaceOffers} />
         </div>
@@ -198,7 +205,7 @@ export default function PlacesFormPage() {
         <div className="mt-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
           <PrefferedTenants
             selected={preferredTenants}
-            onChange={setPlaceOffers}
+            onChange={setPreferredTenants}
           />
         </div>
         <div className="grid  grid-cols-3 gap-2 md:grid-cols-4">

@@ -70,20 +70,20 @@ export default function PlaceGallery({ place }) {
           </div>
 
           <div className="">
-            {place.photos?.[1] && (
+            {place.photos?.[3] && (
               <img
                 onClick={() => setShowAllPhotos(true)}
                 className="cursor-pointer aspect-rectangle"
-                src={"http://localhost:4000/uploads/" + place.photos?.[1]}
+                src={"http://localhost:4000/uploads/" + place.photos?.[3]}
                 alt=""
               />
             )}
 
-            {place.photos?.[2] && (
+            {place.photos?.[4] && (
               <img
                 onClick={() => setShowAllPhotos(true)}
                 className="cursor-pointer aspect-rectangle object-cover relative top-2"
-                src={"http://localhost:4000/uploads/" + place.photos?.[2]}
+                src={"http://localhost:4000/uploads/" + place.photos?.[4]}
                 alt=""
               />
             )}
