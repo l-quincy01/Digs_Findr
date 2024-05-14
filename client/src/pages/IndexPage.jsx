@@ -12,6 +12,7 @@ import {
   PiStudentBold,
 } from "react-icons/pi";
 import { FaRegBuilding, FaRegUser } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
 
 export default function IndexPage() {
   const [places, setPlaces] = useState([]);
@@ -35,65 +36,133 @@ export default function IndexPage() {
   }, []);
 
   return (
-    <div className=" p-10  gap-8 gap-y-10 mt-10 grid grid-cols-2 md:gird-cols-3 lg:grid-cols-4">
-      {places.length > 0 &&
-        places.map((place) => (
-          <Link
-            key={place._id}
-            to={"/place/" + place._id}
-            className="cursor-pointer  shadow-lg rounded-xl "
-          >
-            <div className="mb-2 bg-gray-500 rounded-2xl flex">
-              {place.photos?.[0] && (
-                <img
-                  className="rounded-t-xl object-cover aspect-square w-full h-full"
-                  src={"http://localhost:4000/uploads/" + place.photos?.[0]}
-                  alt=""
-                />
-              )}
+    <>
+      <div className="  items-center  justify-center overflow-x-auto mt-4 p-2">
+        <h2 className=" text-xl text-center font-semibold content-center mb-2">
+          Popular rental agencies in your area
+        </h2>
+        <div className=" mb-4 flex  flex-row  items-center  justify-center  gap-10 p-3  hover:text-neutral-800 transition cursor-pointer">
+          <div className="justify-center flex-col">
+            <img
+              className=" rounded-sm w-16 h-9 "
+              src={
+                "https://s3-eu-west-1.amazonaws.com/askremax/770/0eb03656-6ca3-05f6-300c-8aad530aa2f4.jpg"
+              }
+              alt=""
+            />
+            <div className="font-medium text-sm text-center"> Remax</div>
+          </div>
+          <div className="justify-center items-center flex-col">
+            <img
+              className=" rounded-sm w-16 h-9 "
+              src={
+                "https://sloepwes.co.za/storage/2022/06/Seeff-Logo-PNG-900x357.png"
+              }
+              alt=""
+            />
+            <div className="font-medium text-sm text-center"> Seef</div>
+          </div>
+          <div className="justify-center items-center  flex-col">
+            <img
+              className=" rounded-sm w-16 h-9 "
+              src={
+                "https://www.wpcc.co.za/wp-content/uploads/2019/05/Pam-Golding-New-Logo.jpg"
+              }
+              alt=""
+            />
+            <div className="font-medium text-sm text-center"> Pam Golding</div>
+          </div>
+          <div className="justify-center items-center  flex-col">
+            <img
+              className=" rounded-sm w-16 h-9 "
+              src={"	https://www.wizebuy.co.za/images/logo.gif"}
+              alt=""
+            />
+            <div className="font-medium text-sm text-center"> Wize Buy</div>
+          </div>
+          <div className="justify-center items-center  flex-col">
+            <img
+              className=" rounded-sm w-16 h-9 "
+              src={
+                "https://www.arlon.co.za/assets/media/logo.043015e66fc28df9d51dcfc66ce66154.png"
+              }
+              alt=""
+            />
+            <div className="font-medium text-sm text-center">
+              {" "}
+              Arlon properties
             </div>
-            <div className=" p-4">
-              <h3 className=" text-lg font-semibold flex justify-between">
-                {" "}
-                {place.title}{" "}
-              </h3>
+          </div>
+        </div>
+      </div>
 
-              <h2 className="text-lg text-gray-500">
-                {/* Site Listed Property AND non Site listed properties */}
-                {place.address ? (
-                  place.address
-                ) : (
-                  <span className=" text-sm">
-                    {place.propertyType + " " + place.webRef}
-                  </span>
-                )}{" "}
-              </h2>
-              <span className="text-gray-500 text-sm">
-                {place.availability}
-              </span>
+      <div className=" px-20  gap-8 gap-y-10  grid grid-cols-2 md:gird-cols-3 lg:grid-cols-4">
+        {places.length > 0 &&
+          places.map((place) => (
+            <Link key={place._id} to={"/place/" + place._id} className="">
+              <div className="mb-2 bg-gray-500 rounded-2xl flex">
+                {/* HEAFRT NOT SHOWING */}
+                <FaHeart
+                  className="
+            relative
+            top-3
+            right-3 z-0
+            text-gray-400
+             border-white
+          "
+                />
+                {place.photos?.[0] && (
+                  <img
+                    className="rounded-lg object-cover aspect-square w-full h-full"
+                    src={"http://localhost:4000/uploads/" + place.photos?.[0]}
+                    alt=""
+                  />
+                )}
+              </div>
 
-              <div className="mt-1 flex justify-between ">
-                {" "}
-                <span>
-                  <span className="font-semibold text-lg">
-                    {" "}
-                    R{place.price}{" "}
-                  </span>
-                  <span className=" text-md"> / month</span>
-                </span>{" "}
-                <div className="flex gap-2">
-                  {Object.entries(iconMap).map(
-                    ([property, IconComponent]) =>
-                      (place.placeOffers.includes(property) ||
-                        place.preferredTenants.includes(property)) && (
-                        <IconComponent key={property} />
-                      )
-                  )}
+              <div className=" ">
+                <h3 className=" text-md font-medium flex justify-between truncate">
+                  {" "}
+                  {place.title}{" "}
+                </h3>
+
+                <h2 className="text-sm text-gray-500">
+                  {/* Site Listed Property AND non Site listed properties */}
+                  {place.address ? (
+                    place.address
+                  ) : (
+                    <span className=" text-sm">
+                      {place.propertyType + " " + place.webRef}
+                    </span>
+                  )}{" "}
+                </h2>
+                <span className="text-gray-500 text-sm">
+                  {place.availability}
+                </span>
+
+                <div className="mt-1 flex justify-between ">
+                  {" "}
+                  <span>
+                    <span className="font-semibold text-sm">
+                      {" "}
+                      R{place.price}{" "}
+                    </span>
+                    <span className=" font-semibold text-sm"> / month</span>
+                  </span>{" "}
+                  <div className="flex gap-2">
+                    {Object.entries(iconMap).map(
+                      ([property, IconComponent]) =>
+                        (place.placeOffers.includes(property) ||
+                          place.preferredTenants.includes(property)) && (
+                          <IconComponent key={property} />
+                        )
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
-    </div>
+            </Link>
+          ))}
+      </div>
+    </>
   );
 }

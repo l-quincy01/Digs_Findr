@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#F5385D",
+        primary: "#ADD8E6",
       },
       aspectRatio: {
         rectangle: "4/3",
