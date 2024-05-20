@@ -15,6 +15,7 @@ export default function PlacesFormPage() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
+  const [listedBy] = "Digs Findr";
   const [propertyType, setPropertyType] = useState("");
   const [placeOffers, setPlaceOffers] = useState([]);
 
@@ -72,6 +73,7 @@ export default function PlacesFormPage() {
     const placeData = {
       title,
       address,
+      listedBy,
       propertyType,
       placeOffers,
       addedPhotos,

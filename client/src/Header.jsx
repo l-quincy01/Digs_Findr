@@ -1,47 +1,37 @@
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext.jsx";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { IoFilterOutline, IoSearch } from "react-icons/io5";
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
-import {
-  GiBarn,
-  GiBoatFishing,
-  GiCactus,
-  GiCastle,
-  GiCaveEntrance,
-  GiForestCamp,
-  GiIsland,
-  GiWindmill,
-} from "react-icons/gi";
+
+import { GiWindmill } from "react-icons/gi";
 import { LuSettings2 } from "react-icons/lu";
-import { FaSkiing } from "react-icons/fa";
-import { BsSnow } from "react-icons/bs";
-import { IoDiamond } from "react-icons/io5";
-import { MdOutlineVilla } from "react-icons/md";
+
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { MdOutlineRealEstateAgent } from "react-icons/md";
 import { FaRegMap } from "react-icons/fa";
+
 export default function Header() {
   const { user } = useContext(UserContext);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = [
     {
-      label: "All",
+      label: "all",
       icon: BsGrid3X3Gap,
       description: "All properties available!",
     },
     {
-      label: "Digs Findr",
+      label: "digs_Findr",
       icon: GiWindmill,
       description: "This property is has windmills!",
     },
     {
-      label: "Rental Agencies",
+      label: "rental_Agencies",
       icon: MdOutlineRealEstateAgent,
       description: "Rental Agencies around!",
     },
     {
-      label: "Map",
+      label: "map",
       icon: FaRegMap,
       description: "This property is in the countryside!",
     },
@@ -115,15 +105,26 @@ export default function Header() {
           <div className=" gap-5 mt-4 flex  flex-row  items-center  justify-center w-full pt-3 px-3  hover:text-neutral-800 transition cursor-pointer">
             <div className="flex flex-row justify-between gap-x-16 truncate">
               {categories.map(({ label, icon: IconComponent }) => (
-                <div
+                <Link
+                  to={label === "all" ? "/" : "/" + label}
                   key={label}
-                  className={`flex flex-col items-center text-gray-500  ${
-                    selected ? "border-b-neutral-800" : "border-transparent"
+                  onClick={() =>
+                    setSelectedCategory(
+                      label === selectedCategory ? null : label
+                    )
+                  }
+                  className={`flex flex-col items-center text-gray-500 border-b-2${
+                    label === selectedCategory
+                      ? " border-b-2 border-b-gray-500"
+                      : " border-transparent"
                   }`}
                 >
                   <IconComponent size={26} />
-                  <div className=" font-light text-sm">{label}</div>
-                </div>
+                  <div className=" font-light text-sm">
+                    {label.toString().charAt(0).toUpperCase() +
+                      label.substring(1)}
+                  </div>
+                </Link>
               ))}
             </div>
             <div className=" absolute right-6 p-3 border border-gray-400 rounded-xl flex flex-row justify-between items-center gap-2">
