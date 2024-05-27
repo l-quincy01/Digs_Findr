@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <header className=" fixed w-full bg-white z-10 shadow-sm">
-      <div className="py-4  border-b-[1px]">
+      <div className="py-4  border-b-[1px] ">
         <div className=" xl:px-20 md:px-10 sm:px-2 px-2">
           <div className="flex flex-row  items-center  justify-between gap-6 md:gap-0">
             {/* Logo */}
@@ -102,7 +102,8 @@ export default function Header() {
               {!!user && <div>{user.name}</div>}
             </Link>
           </div>
-          <div className=" gap-5 mt-4 flex  flex-row  items-center  justify-center w-full pt-3 px-3  hover:text-neutral-800 transition cursor-pointer">
+
+          <div className=" gap-5 mt-4 flex  flex-col  items-center  justify-center w-full pt-3 px-3  hover:text-neutral-800 transition cursor-pointer">
             <div className="flex flex-row justify-between gap-x-16 truncate">
               {categories.map(({ label, icon: IconComponent }) => (
                 <Link
