@@ -13,7 +13,7 @@ Additionally, it provides a platform for landlords to advertise their properties
 ## Acknowledgements
 
 Inspired by digsconnect.com
-and final year project
+
 
 ## Tech Stack
 
