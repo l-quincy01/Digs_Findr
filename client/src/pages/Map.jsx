@@ -1,21 +1,8 @@
-// import axios from "axios";
-// import { useMemo, useState } from "react";
 import React from "react";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxPopover,
-  ComboboxList,
-  ComboboxOption,
-  ComboboxOptionText,
-} from "@reach/combobox";
+import { GoogleMap, useJsApiLoader, OverlayView } from "@react-google-maps/api";
 import "@reach/combobox/styles.css";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
+import { Link } from "react-router-dom";
+import { IoGridOutline } from "react-icons/io5";
 
 const containerStyle = {
   width: "100vw",
@@ -28,11 +15,9 @@ export default function Map() {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyDtMezHdKoQ_QphG8EyxcxckbJz2APoAj8", // Replace with your actual API key
+    googleMapsApiKey: "AIzaSyBXbKUn-9JqBvLeS7E94CYadiwP06KT8H4",
   });
   const [map, setMap] = React.useState(null);
-  // const [selectedLocation, setSelectedLocation] = useState(null);
-  // const [nearbyPlaces, setNearbyPlaces] = useState([]);
 
   const onLoad = React.useCallback(function callback(map) {
     setMap(map);
@@ -42,64 +27,36 @@ export default function Map() {
     setMap(null);
   }, []);
 
-  // const handleSearch = async (address) => {
-  //   try {
-  //     const results = await getGeocode({ address });
-  //     const { lat, lng } = await getLatLng(results[0]);
-  //     setSelectedLocation({ lat, lng });
-
-  //     // Make API call to Nearby Places API
-  //     const response = await axios.post(
-  //       "https://places.googleapis.com/v1/places:searchNearby",
-  //       {
-  //         includedTypes: ["restaurant"],
-  //         maxResultCount: 10,
-  //         locationRestriction: {
-  //           circle: {
-  //             center: { latitude: lat, longitude: lng },
-  //             radius: 500.0,
-  //           },
-  //         },
-  //       },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           "X-Goog-Api-Key": "AIzaSyDtMezHdKoQ_QphG8EyxcxckbJz2APoAj8",
-  //           "X-Goog-FieldMask": "places.displayName",
-  //         },
-  //       }
-  //     );
-
-  //     setNearbyPlaces(response.data.results);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
   const rentalAgencyLocation = [
     {
       name: "Pamgolding Grahamstown!",
-      lat: "-33.314660",
-      lng: "26.523390",
+      lat: -33.31466,
+      lng: 26.52339,
+      price: "4500",
     },
     {
       name: "Remax!",
-      lat: "-33.3083",
-      lng: "26.5221",
+      lat: -33.3083,
+      lng: 26.5221,
+      price: "R3000",
     },
     {
       name: "Harcourts!",
-      lat: "-33.3122",
-      lng: "26.5221",
+      lat: -33.3122,
+      lng: 26.5221,
+      price: "R3500 ",
     },
     {
       name: "Just Letting",
-      lat: "-33.310720",
-      lng: "26.522210",
+      lat: -33.31072,
+      lng: 26.52221,
+      price: "R4000 ",
     },
     {
       name: "RealNet ",
-      lat: "-33.303000",
-      lng: "26.518900",
+      lat: -33.303,
+      lng: 26.5189,
+      price: "  R4200   ",
     },
   ];
 
@@ -116,12 +73,21 @@ export default function Map() {
     lng: lngSum / rentalAgencyLocation.length,
   };
 
+  const CustomMarker = ({ lat, lng, price }) => (
+    <OverlayView
+      position={{ lat, lng }}
+      mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+      className=" p-5 w-full"
+    >
+      <div className=" w-full text-black text-xs flex flex-row items-center justify-center bg-white rounded-2xl p-4 font-bold">
+        {price}
+      </div>
+    </OverlayView>
+  );
+
   return isLoaded ? (
     <>
-      <h2 className=" text-xl text-center font-semibold content-center mb-3 ">
-        RENTAL AGENCY
-      </h2>
-      <div className=" items-center justify-center flex  px-10 rounded-lg">
+      <div className="items-center justify-center flex px-10 rounded-lg">
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
@@ -130,53 +96,25 @@ export default function Map() {
           onUnmount={onUnmount}
         >
           {rentalAgencyLocation.map((place) => (
-            <Marker
+            <CustomMarker
               key={place.name}
-              position={{
-                lat: parseFloat(place.lat),
-                lng: parseFloat(place.lng),
-              }}
+              lat={parseFloat(place.lat)}
+              lng={parseFloat(place.lng)}
+              price={place.price}
+              className="p-2"
             />
           ))}
         </GoogleMap>
+      </div>
+      <div className="inset-x-0 w-full bottom-10 fixed z-50 flex items-center justify-center">
+        <button className="flex justify-center items-center gap-3 z-55 fixed bg-black text-white p-3 rounded-2xl">
+          <Link to="/" className="flex justify-center items-center gap-3">
+            Back to grid <IoGridOutline />
+          </Link>
+        </button>
       </div>
     </>
   ) : (
     <></>
   );
 }
-
-// const PlacesAutocomplete = ({ onSelect }) => {
-//   const {
-//     ready,
-//     value,
-//     setValue,
-//     suggestions: { status, data },
-//     clearSuggestions,
-//   } = usePlacesAutocomplete();
-
-//   return (
-//     <>
-//       <Combobox onSelect={onSelect}>
-//         <ComboboxInput
-//           value={value}
-//           onChange={(e) => {
-//             setValue(e.target.value);
-//             clearSuggestions();
-//           }}
-//           disabled={!ready}
-//           className="w-100 p-2"
-//           placeholder="Search an address"
-//         />
-//         <ComboboxPopover>
-//           <ComboboxList>
-//             {status === "OK" &&
-//               data.map(({ place_id, description }) => (
-//                 <ComboboxOption key={place_id} value={description} />
-//               ))}
-//           </ComboboxList>
-//         </ComboboxPopover>
-//       </Combobox>
-//     </>
-//   );
-// };

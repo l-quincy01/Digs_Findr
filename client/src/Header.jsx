@@ -30,11 +30,11 @@ export default function Header() {
       icon: MdOutlineRealEstateAgent,
       description: "Rental Agencies around!",
     },
-    {
-      label: "map",
-      icon: FaRegMap,
-      description: "This property is in the countryside!",
-    },
+    // {
+    //   label: "map",
+    //   icon: FaRegMap,
+    //   description: "This property is in the countryside!",
+    // },
   ];
 
   return (
