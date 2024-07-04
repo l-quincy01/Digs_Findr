@@ -12,10 +12,6 @@ Additionally, it provides a platform for landlords to advertise their properties
 
 ## Screenshots
 
-<!-- ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
-
-## Screenshots
-
 <div style="display:flex;" >
 <img src="/screenshots/1.png" width="50%" >
 <img src="/screenshots/2.png" width="50%" >
