@@ -8,7 +8,6 @@ import { LuSettings2 } from "react-icons/lu";
 
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { MdOutlineRealEstateAgent } from "react-icons/md";
-import { FaRegMap } from "react-icons/fa";
 
 export default function Header() {
   const { user } = useContext(UserContext);
