@@ -1,12 +1,12 @@
-import Perks from "../Perks";
-import PhotoUploader from "../PhotoUploader";
+import Perks from "../components/Perks";
+import PhotoUploader from "../components/PhotoUploader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AccountNavigation from "./AccountNavigation";
 import { Navigate, useParams } from "react-router-dom";
 import { MdApartment } from "react-icons/md";
-import Furniture from "../Furniture";
-import PrefferedTenants from "../PrefferedTenants";
+import Furniture from "../components/Furniture";
+import PrefferedTenants from "../components/PrefferedTenants";
 // import { FaHouseUser } from "react-icons/fa";
 // import { BsBuildingsFill } from "react-icons/bs";
 // import { GiFamilyHouse } from "react-icons/gi";

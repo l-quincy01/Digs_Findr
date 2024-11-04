@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BookingWidget from "../BookingWidget";
-import PlaceGallery from "../PlaceGallery";
-import LocationAddress from "../LocationAddress";
+import BookingWidget from "../components/BookingWidget";
+import PlaceGallery from "../components/PlaceGallery";
+import LocationAddress from "../components/LocationAddress";
 import { IoWifi } from "react-icons/io5";
 import {
   PiCertificate,
@@ -38,7 +38,7 @@ import { FaRegUser } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
 import { FaRegBuilding } from "react-icons/fa";
 
-import Comments from "../Comments";
+import Comments from "../components/Comments";
 
 export default function PlacePage() {
   const { id } = useParams();

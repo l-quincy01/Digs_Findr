@@ -1,0 +1,42 @@
+src/
+│
+├── assets/              # Static files (images, fonts, styles)
+│   ├── images/          
+│   ├── fonts/           
+│   └── styles/          # Global styles or CSS files
+│
+├── components/          # Reusable UI components (buttons, form inputs, etc.)
+│   ├── Button.jsx
+│   ├── InputField.jsx
+│   └── Navbar/
+│       └── Navbar.jsx
+│
+├── pages/               # Individual page components (e.g., Home, About, Profile)
+│   ├── Home/
+│       └── Home.jsx
+│   ├── About/
+│       └── About.jsx
+│   └── Profile/
+│       └── Profile.jsx
+│
+├── context/             # Context API for global state management
+│   ├── UserContext.jsx
+│   └── ThemeContext.jsx
+│
+├── hooks/               # Custom React hooks
+│   ├── useAuth.js
+│   └── useFetch.js
+│
+├── services/            # API calls or business logic
+│   ├── api.js           # Functions to call APIs
+│   └── authService.js   # Authentication-related functions
+│
+├── utils/               # Helper functions and utilities
+│   ├── constants.js
+│   ├── formatDate.js
+│   └── validators.js
+│
+├── App.jsx              # Main app component
+├── index.js             # Entry point for the React app
+└── routes/              # Routing setup (React Router, etc.)
+    └── AppRoutes.jsx    # Defines all app routes
