@@ -14,13 +14,7 @@ import "swiper/css/scrollbar";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
-import {
-  Keyboard,
-  Scrollbar,
-  Navigation,
-  Pagination,
-  Autoplay,
-} from "swiper/modules";
+import { Keyboard, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 
@@ -29,10 +23,10 @@ export default function PopularAgents() {
     <>
       <div className="  items-center  justify-center overflow-x-auto mt-4 p-2">
         <h2 className=" text-xl text-center font-semibold content-center mb-2">
-          Popular rental agencies in your area
+          Agencies In Your Area
         </h2>
 
-        <div className=" px-80 py-5">
+        <div className=" px-60 xl:px-60 py-5">
           <Swiper
             //spaceBetween={10}
 
