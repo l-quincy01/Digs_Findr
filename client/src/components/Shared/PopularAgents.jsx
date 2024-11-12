@@ -23,10 +23,10 @@ export default function PopularAgents() {
     <>
       <div className="  items-center  justify-center overflow-x-auto mt-4 p-2">
         <h2 className=" text-xl text-center font-semibold content-center mb-2">
-          Agencies In Your Area
+          Agencies In your area
         </h2>
 
-        <div className=" px-60 xl:px-60 py-5">
+        <div className=" md:px-10 lg:px-30 xl:px-60 py-5">
           <Swiper
             //spaceBetween={10}
 

@@ -19,7 +19,7 @@ export default function HomePage() {
       <PopularAgents />
 
       <div>
-        <div className=" px-20  gap-8 gap-y-10  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className=" px-5 md:px-20  gap-8 gap-y-10  grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {places.length > 0 &&
             places.map((place) => (
               <PropertyCards
