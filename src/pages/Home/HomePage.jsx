@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import PopularAgents from "../../components/Shared/PopularAgents";
 import PropertyCards from "../../components/Shared/PropertyCards";
-//zama
+
 export default function HomePage() {
   const [places, setPlaces] = useState([]);
 

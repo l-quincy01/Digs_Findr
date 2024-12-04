@@ -23,6 +23,7 @@ import PlacesPage from "./pages/AccountPage/UserProperty/PlacesPage.jsx";
 import PlacesFormPage from "./pages/AccountPage/UserProperty/PlacesFormPage.jsx";
 import PlacePage from "./pages/Property/PlacePage.jsx";
 import HomePage from "./pages/Home/HomePage.jsx";
+import { ThemeProvider } from "./components/Providers/ThemeProvider.tsx";
 // import { useEffect} from "react" ;
 
 axios.defaults.baseURL = "http://localhost:4000";
@@ -30,6 +31,7 @@ axios.defaults.withCredentials = true;
 
 function App() {
   return (
+    // <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
     <UserContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -49,6 +51,7 @@ function App() {
         </Route>
       </Routes>
     </UserContextProvider>
+    // </ThemeProvider>
   );
 }
 
