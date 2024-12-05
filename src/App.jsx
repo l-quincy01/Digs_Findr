@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import RegisterPage from "./pages/Login/RegisterPage.jsx";
 import Layout from "./Layout.jsx";
 import axios from "axios";
-import { UserContextProvider } from "./context/UserContext.jsx";
+import { UserContextProvider } from "./context/UserContext.tsx";
 import AccountPage from "./pages/AccountPage/AccountPage.jsx";
 
 // import PlacesPage from "./pages/PlacesPage";

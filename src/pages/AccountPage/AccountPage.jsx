@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext.tsx";
 import AccountNavigation from "../../components/AccountPage/AccountNavigation";
 // import PlacesPage from "../PlacesPage";
 import { MdOutlineVerified } from "react-icons/md";

@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 
 import { FaRegFlag, FaRegHeart } from "react-icons/fa";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext.tsx";
 
 export default function BookingWidget({ place }) {
   // const [checkIn, setCheckIn] = useState();
