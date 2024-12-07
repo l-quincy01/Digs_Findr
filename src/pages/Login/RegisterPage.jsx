@@ -77,7 +77,6 @@ export default function RegisterPage() {
             value={gender}
             onChange={(ev) => setGender(ev.target.value)}
           >
-            <option value="Not Specified">Not Specified</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>

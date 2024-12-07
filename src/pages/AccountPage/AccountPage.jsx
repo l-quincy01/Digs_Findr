@@ -8,6 +8,9 @@ import { MdOutlineVerified } from "react-icons/md";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import PlacesPage from "./UserProperty/PlacesPage";
 
+import ProfileForm from "../../components/Shared/Form.tsx";
+import { Button } from "../../components/ui/button.tsx";
+
 export default function AccountPage() {
   const [toHomePage, setToHomePage] = useState(null);
   const [showInputField, setShowInputField] = useState(false);
@@ -49,7 +52,9 @@ export default function AccountPage() {
     <div>
       <AccountNavigation />
 
-      <div className="grid grid-cols-[1fr_2fr] px-10 mx-10">
+      <ProfileForm />
+
+      {/* <div className="grid grid-cols-[1fr_2fr] px-10 mx-10">
         <div className="border-r">
           <div className="flex-row mb-10">
             <div className="flex items-center">
@@ -71,7 +76,7 @@ export default function AccountPage() {
           </div>
         </div>
 
-        {/* NEEDS OWN COMPONENET */}
+    
         <div className="mx-4">
           <div className="pb-4 ">
             {!showInputField && (
@@ -152,7 +157,7 @@ export default function AccountPage() {
                 </span>
               </>
             )}{" "}
-            {/* INPUT FIELDS */}
+   
             {showInputField && (
               <>
                 <div className=" flex items-baseline justify-between">
@@ -180,15 +185,14 @@ export default function AccountPage() {
           </div>
           <div className="border-b w-2/3"></div>
         </div>
-        {/* NEEDS OWN COMPONENET */}
-      </div>
+
+      </div> */}
 
       {subpage === "profile" && (
         <div className="text-center max-w-lg mx-auto mt-5">
-          <button onClick={logout} className="primary max-w-sm mt-2">
-            {" "}
+          <Button onClick={logout} className="">
             Logout
-          </button>
+          </Button>
         </div>
       )}
       {subpage === "places" && <PlacesPage />}
