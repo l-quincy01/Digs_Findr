@@ -3,17 +3,15 @@ import { useContext, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.tsx";
 import AccountNavigation from "../../components/AccountPage/AccountNavigation";
-// import PlacesPage from "../PlacesPage";
-import { MdOutlineVerified } from "react-icons/md";
-import { IoCalendarNumberOutline } from "react-icons/io5";
+
 import PlacesPage from "./UserProperty/PlacesPage";
 
 import ProfileForm from "../../components/Shared/Form.tsx";
 import { Button } from "../../components/ui/button.tsx";
+import AvatarComp from "../../components/Navbar/Avatar.tsx";
 
 export default function AccountPage() {
   const [toHomePage, setToHomePage] = useState(null);
-  const [showInputField, setShowInputField] = useState(false);
 
   const { ready, user, setUser } = useContext(UserContext);
 
@@ -39,22 +37,16 @@ export default function AccountPage() {
     return <Navigate to={toHomePage} />;
   }
 
-  const handleShowInputField = () => {
-    // Your logic here
-    setShowInputField(true);
-  };
-  const handleHideInputField = () => {
-    // Your logic here
-    setShowInputField(false);
-  };
-
   return (
-    <div>
-      <AccountNavigation />
+    <>
+      <div className="flex flex-row ">
+        {/* <AccountNavigation /> */}
+        <AvatarComp className=" scale-150" />
+        <div className=" grow px-20">
+          <ProfileForm />
+        </div>
 
-      <ProfileForm />
-
-      {/* <div className="grid grid-cols-[1fr_2fr] px-10 mx-10">
+        {/* <div className="grid grid-cols-[1fr_2fr] px-10 mx-10">
         <div className="border-r">
           <div className="flex-row mb-10">
             <div className="flex items-center">
@@ -187,6 +179,7 @@ export default function AccountPage() {
         </div>
 
       </div> */}
+      </div>
 
       {subpage === "profile" && (
         <div className="text-center max-w-lg mx-auto mt-5">
@@ -196,6 +189,6 @@ export default function AccountPage() {
         </div>
       )}
       {subpage === "places" && <PlacesPage />}
-    </div>
+    </>
   );
 }
