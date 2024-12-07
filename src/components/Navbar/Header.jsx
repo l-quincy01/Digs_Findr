@@ -34,7 +34,7 @@ import { Button } from "../../components/ui/button.tsx";
 import { useTheme } from "../Providers/ThemeProvider.tsx";
 import { FaRegUser, FaRegUserCircle } from "react-icons/fa";
 import { LuCircleUser } from "react-icons/lu";
-import { AvatarDropdownMenu } from "./Avatar.jsx";
+import AvatarComp from "./Avatar";
 
 export default function Header() {
   const { user } = useContext(UserContext);
@@ -114,9 +114,7 @@ export default function Header() {
             } `}
           >
             <input
-              className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none ${
-                theme === "light" ? "bg-white" : "bg-gray-900"
-              }`}
+              className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none `}
               type="search"
               placeholder="Search"
             />
@@ -126,9 +124,17 @@ export default function Header() {
             <IoFilterOutline className="cursor-pointer" />
           </div>
           {/* <ModeToggle /> */}
-          <div className="">
-            <LuCircleUser size={24} />
-          </div>
+
+          {user ? (
+            <div className="mr-4">
+              <AvatarComp />
+              {/* {user.name} */}
+            </div>
+          ) : (
+            <Link className="cursor-pointer" to={user ? "/account" : "/login"}>
+              <Button>Sign Up</Button>
+            </Link>
+          )}
         </div>
         <SheetContent side="left">
           <Link href="#" className="mr-6 hidden lg:flex" prefetch={false}>
@@ -196,9 +202,7 @@ export default function Header() {
           }`}
         >
           <input
-            className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none ${
-              theme === "light" ? "bg-white" : "bg-gray-900"
-            }`}
+            className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none`}
             type="search"
             placeholder="Search"
           />
@@ -235,7 +239,7 @@ export default function Header() {
         <div className=" flex flex-row items-center gap-x-6">
           {user ? (
             <div className="mr-4">
-              <AvatarDropdownMenu />
+              <AvatarComp />
               {/* {user.name} */}
             </div>
           ) : (

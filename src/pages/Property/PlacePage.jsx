@@ -39,6 +39,7 @@ import { BsPersonLinesFill } from "react-icons/bs";
 import { FaRegBuilding } from "react-icons/fa";
 
 import Comments from "../../components/Comments";
+import { Button } from "../../components/ui/button";
 
 export default function PlacePage() {
   const { id } = useParams();
@@ -79,10 +80,8 @@ export default function PlacePage() {
   };
 
   return (
-    <div className=" mt-4 mx-8 px-12 pt-4 ">
-      {/* <h1 className="text-2xl">{place.title}</h1> */}
-      {/* <LocationAddress>{place.address}</LocationAddress> */}
-      <div className="w-full h-full">
+    <div className="  mx-8  ">
+      <div className="h-full">
         <PlaceGallery place={place} />
       </div>
 
@@ -135,9 +134,9 @@ export default function PlacePage() {
                 )
             )}
           </div>
-          <button className=" bg-white border flex gap-2 items-center justify-center p-6 text-sm font-semibold">
+          <Button className=" border flex gap-2 items-center justify-center p-6 text-sm font-semibold">
             Show all
-          </button>
+          </Button>
           <h2 className="fonr-semibold text-md my-4 font-bold">
             Preffered tenants{" "}
           </h2>

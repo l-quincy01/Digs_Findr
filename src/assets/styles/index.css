@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type = "text"], input[type="password"], input[type="email"], input[type="number"], textarea{
 
-    @apply w-full border my-2 py-2 px-3 rounded-lg  ;
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+    @apply w-full border my-2 py-2 px-3 rounded-lg bg-white dark:bg-gray-800;
+}
+input[type="search"]{
+  @apply  dark:bg-gray-800;
 
 }
 

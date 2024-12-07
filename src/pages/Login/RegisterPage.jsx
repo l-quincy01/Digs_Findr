@@ -23,11 +23,10 @@ export default function RegisterPage() {
         governmentID,
         gender,
         userAddress,
-      }); /*CALLING LOCAL HOST */
+      });
       alert("Registration successful");
     } catch (error) {
       alert("Registration Failed. Try again later");
-      ``;
     }
   }
 
