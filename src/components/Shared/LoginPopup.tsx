@@ -26,6 +26,17 @@ import axios from "axios";
 import { Navigate } from "react-router";
 import RegisterPopup from "./RegisterPopup";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+
 export default function LoginPopup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,14 +49,14 @@ export default function LoginPopup() {
   const [gender, setGender] = useState("");
   const [userAddress, setUserAddress] = useState("");
 
-  const [registerOpen, setRegisterOpen] = useState(false);
+  // const [registerOpen, setRegisterOpen] = useState(false);
 
-  const handleRegisterOpen = () => {
-    setRegisterOpen(true);
-  };
-  const handleRegisterClose = () => {
-    setRegisterOpen(false);
-  };
+  // const handleRegisterOpen = () => {
+  //   setRegisterOpen(true);
+  // };
+  // const handleRegisterClose = () => {
+  //   setRegisterOpen(false);
+  // };
 
   const registerUser = async (ev: any) => {
     ev.preventDefault();
@@ -87,161 +98,189 @@ export default function LoginPopup() {
       <DialogTrigger asChild>
         <Button variant="outline">Login</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="">
         <DialogHeader>
-          <DialogTitle> Login or Sign up</DialogTitle>
+          <DialogTitle> Welcome to Digs Findr</DialogTitle>
         </DialogHeader>
-        {!registerOpen ? (
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Email
-              </Label>
-              <Input
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="username" className="text-right">
-                Password
-              </Label>
-              <Input
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={(ev) => setPassword(ev.target.value)}
-                className="col-span-3"
-              />
-            </div>
-            <div>
-              {" "}
-              Dont have an account?
-              <span className="underline ml-2" onClick={handleRegisterOpen}>
-                Register Here
-              </span>
-            </div>
-          </div>
-        ) : (
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Name
-              </Label>
-              <Input
-                className="col-span-3"
-                type="text"
-                placeholder="John Appleseed"
-                value={name}
-                onChange={(ev) => setName(ev.target.value)}
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Email
-              </Label>
-              <Input
-                className="col-span-3"
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Password
-              </Label>
-              <Input
-                className="col-span-3"
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={(ev) => setPassword(ev.target.value)}
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Phone Number
-              </Label>
-              <Input
-                className="col-span-3"
-                type="text"
-                placeholder="+27 81 123 4567"
-                value={phoneNumber}
-                onChange={(ev) => setPhoneNumber(ev.target.value)}
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Gender
-              </Label>
-              <Select
-                defaultValue=""
-                onValueChange={(ev) => setGender(ev.target.value)}
-              >
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Select Gender" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Gender</SelectLabel>
-                    <SelectItem value="apple">Male</SelectItem>
-                    <SelectItem value="banana">Female</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
+        {/* CONETENT */}
+        <div className="">
+          <Tabs defaultValue="account" className="">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="account">Login</TabsTrigger>
+              <TabsTrigger value="password">Sign Up</TabsTrigger>
+            </TabsList>
 
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Government ID
-              </Label>
-              <Input
-                className="col-span-3"
-                type="text"
-                placeholder="Government ID"
-                value={governmentID}
-                onChange={(ev) => setGovernmentID(ev.target.value)}
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Street Address
-              </Label>
-              <Input
-                className="col-span-3"
-                type="text"
-                placeholder="Government ID"
-                value={governmentID}
-                onChange={(ev) => setGovernmentID(ev.target.value)}
-              />
-            </div>
+            <TabsContent value="account">
+              <Card>
+                <CardHeader>
+                  <CardDescription>Log into your account.</CardDescription>
+                </CardHeader>
 
-            <div>
-              {" "}
-              Already have an account?
-              <span className="underline ml-2" onClick={handleRegisterClose}>
-                Sign in Here
-              </span>
-            </div>
-          </div>
-        )}
+                <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Email
+                    </Label>
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(ev) => setEmail(ev.target.value)}
+                      className="col-span-3"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="username" className="text-right">
+                      Password
+                    </Label>
+                    <Input
+                      type="password"
+                      placeholder="password"
+                      value={password}
+                      onChange={(ev) => setPassword(ev.target.value)}
+                      className="col-span-3"
+                    />
+                  </div>
+                </CardContent>
 
-        <DialogFooter>
-          {!registerOpen ? (
-            <Button type="submit" onClick={loginFunc}>
-              Login
-            </Button>
-          ) : (
-            <Button type="submit" onClick={loginFunc}>
-              Sign Up
-            </Button>
-          )}
-        </DialogFooter>
+                <CardFooter className="flex flex-col items-start space-y-5">
+                  <div className="text-sm text-gray-500">
+                    By continuing Agree and continue, You agree to our Terms of
+                    Service and Privacy Policy.
+                  </div>
+                  <Button
+                    className="flex-grow w-full"
+                    type="submit"
+                    onClick={loginFunc}
+                  >
+                    Login
+                  </Button>
+                </CardFooter>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="password">
+              <Card>
+                <CardHeader>
+                  <CardDescription>Sign into your account.</CardDescription>
+                </CardHeader>
+
+                <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Name
+                    </Label>
+                    <Input
+                      className="col-span-3"
+                      type="text"
+                      placeholder="John Appleseed"
+                      value={name}
+                      onChange={(ev) => setName(ev.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Email
+                    </Label>
+                    <Input
+                      className="col-span-3"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(ev) => setEmail(ev.target.value)}
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Password
+                    </Label>
+                    <Input
+                      className="col-span-3"
+                      type="password"
+                      placeholder="password"
+                      value={password}
+                      onChange={(ev) => setPassword(ev.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Phone Number
+                    </Label>
+                    <Input
+                      className="col-span-3"
+                      type="text"
+                      placeholder="+27 81 123 4567"
+                      value={phoneNumber}
+                      onChange={(ev) => setPhoneNumber(ev.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Gender
+                    </Label>
+                    <Select
+                      defaultValue=""
+                      onValueChange={(ev) => setGender(ev.target.value)}
+                    >
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Select Gender" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectLabel>Gender</SelectLabel>
+                          <SelectItem value="apple">Male</SelectItem>
+                          <SelectItem value="banana">Female</SelectItem>
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Government ID
+                    </Label>
+                    <Input
+                      className="col-span-3"
+                      type="text"
+                      placeholder="Government ID"
+                      value={governmentID}
+                      onChange={(ev) => setGovernmentID(ev.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-right">
+                      Street Address
+                    </Label>
+                    <Input
+                      className="col-span-3"
+                      type="text"
+                      placeholder="49 Apple Street, Pretoria"
+                      value={userAddress}
+                      onChange={(ev) => setUserAddress(ev.target.value)}
+                    />
+                  </div>
+                </CardContent>
+
+                <CardFooter className="flex flex-col items-start space-y-5">
+                  <div className="text-sm text-gray-500">
+                    By continuing Agree and continue, You agree to our Terms of
+                    Service and Privacy Policy.
+                  </div>
+                  <Button
+                    className="flex-grow w-full"
+                    type="submit"
+                    onClick={registerUser}
+                  >
+                    Login
+                  </Button>
+                </CardFooter>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </div>
+        {/* CONETENT */}
+
+        <DialogFooter></DialogFooter>
       </DialogContent>
     </Dialog>
   );
