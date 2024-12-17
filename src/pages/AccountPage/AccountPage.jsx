@@ -10,6 +10,7 @@ import ProfileForm from "../../components/Shared/Form.tsx";
 import { Button } from "../../components/ui/button.tsx";
 import AvatarComp from "../../components/Navbar/Avatar.tsx";
 import AccountProfile from "../../components/AccountPage/AccountProfile.tsx";
+import AccountBreadcrumb from "../../components/AccountPage/BreadCrumb.tsx";
 
 export default function AccountPage() {
   const [toHomePage, setToHomePage] = useState(null);
@@ -40,6 +41,7 @@ export default function AccountPage() {
 
   return (
     <div className="w-full">
+      <AccountBreadcrumb title="Personal info" />
       <AccountProfile />
 
       <div className="flex flex-col items-start justify-start w-full gap-y-4">

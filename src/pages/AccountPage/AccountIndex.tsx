@@ -22,25 +22,34 @@ import { Link } from "react-router-dom";
 import AccountNavigationCards from "../../components/AccountPage/AccountNavigationCards";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { LiaAddressCardSolid } from "react-icons/lia";
+import { BsFillHouseAddFill, BsHouseAdd } from "react-icons/bs";
+import { MdHistory, MdOutlineLiveHelp } from "react-icons/md";
 
 const AccountNavigationCardsList = [
   {
-    iconComponent: <FiUsers />,
-    link: "/account",
+    iconComponent: <LiaAddressCardSolid />,
+    link: "/accountProfile",
     title: "Account",
     description: "Provide personal details and how we can reach you",
   },
   {
-    iconComponent: <FiUsers />,
-    link: "/account/bookings",
+    iconComponent: <MdHistory />,
+    link: "/account/places",
     title: "Your Places",
     description: "Digs you've lived in.",
   },
   {
-    iconComponent: <FiUsers />,
+    iconComponent: <BsFillHouseAddFill />,
     link: "/account/places/new",
     title: "Add A Place",
     description: "Add a new digs.",
+  },
+  {
+    iconComponent: <MdOutlineLiveHelp />,
+    link: "/",
+    title: "Account Info",
+    description: "Information regarding your account.",
   },
 ];
 

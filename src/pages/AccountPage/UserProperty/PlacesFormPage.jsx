@@ -7,9 +7,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { MdApartment } from "react-icons/md";
 import Furniture from "../../../components/Furniture";
 import PrefferedTenants from "../../../components/PrefferedTenants";
-// import { FaHouseUser } from "react-icons/fa";
-// import { BsBuildingsFill } from "react-icons/bs";
-// import { GiFamilyHouse } from "react-icons/gi";
+import AccountBreadcrumb from "../../../components/AccountPage/BreadCrumb";
 
 export default function PlacesFormPage() {
   const { id } = useParams();
@@ -109,8 +107,7 @@ export default function PlacesFormPage() {
 
   return (
     <div>
-      <AccountNavigation />
-
+      <AccountBreadcrumb title="Add Digs" />
       <form className="p-6" onSubmit={savePlace}>
         {preInput("Title", "Give your accomodation a suitable heading")}
         <input

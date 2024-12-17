@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import AccountNavigation from "../components/AccountPage/AccountNavigation";
 // import PlaceImg from "../components/Property/PlaceImg";
-import AccountNavigation from "../../../components/AccountPage/AccountNavigation";
+
 import PlaceImg from "../../../components/Property/PlaceImg";
+import AccountBreadcrumb from "../../../components/AccountPage/BreadCrumb";
 // import PlacesFormPage from "./PlacesFormPage";
 
 export default function PlacesPage() {
@@ -18,41 +19,19 @@ export default function PlacesPage() {
 
   return (
     <div>
-      <AccountNavigation />
+      <AccountBreadcrumb title="Personal info" />
       <br />
       List of all your added places
       <br />
-      <div className="text-centre">
-        <Link
-          className="inline-flex gap-1 bg-primary text-white py-2 px-4 rounded-full"
-          to={"/account/places/new"}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 4.5v15m7.5-7.5h-15"
-            />
-          </svg>
-          Add new place
-        </Link>
-      </div>
       <div className="mt-4 cursor-pointer">
         {places.length > 0 &&
           places.map((place) => (
             <Link
               to={"/account/places/" + place._id}
-              className="mb-4  flex gap-4 bg-gray-100 p-4 rounded-2xl"
+              className="mb-4  flex gap-4  p-4 rounded-2xl"
               key={place._id}
             >
-              <div className=" rounded-md flex file:w-32 h-32 bg-gray-200  shrink-0">
+              <div className=" rounded-md flex file:w-32 h-32   shrink-0">
                 <PlaceImg place={place} />
               </div>
               <div>
@@ -62,9 +41,6 @@ export default function PlacesPage() {
             </Link>
           ))}
       </div>
-      {/* {action === 'new' && (  http://localhost:4000/uploads/de59a5640119f51b62ea106d52c2de52.jpg
-             <PlacesFormPage />
-            )}  */}
     </div>
   );
 }
