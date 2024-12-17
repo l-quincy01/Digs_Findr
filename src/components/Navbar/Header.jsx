@@ -1,13 +1,13 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { useContext, useEffect, useState } from "react";
 import { IoFilterOutline, IoSearch } from "react-icons/io5";
 
-import { GiWindmill } from "react-icons/gi";
-import { FaHouse } from "react-icons/fa6";
+// import { GiWindmill } from "react-icons/gi";
+// import { FaHouse } from "react-icons/fa6";
 
 import { BsGrid3X3Gap } from "react-icons/bs";
-import { MdOutlineRealEstateAgent } from "react-icons/md";
+// import { MdOutlineRealEstateAgent } from "react-icons/md";
 import { PiHouseLight } from "react-icons/pi";
 
 import { BsHouses } from "react-icons/bs";
@@ -32,19 +32,27 @@ import {
 } from "../../components/ui/sheet.tsx";
 import { Button } from "../../components/ui/button.tsx";
 import { useTheme } from "../Providers/ThemeProvider.tsx";
-import { FaRegUser, FaRegUserCircle } from "react-icons/fa";
-import { LuCircleUser } from "react-icons/lu";
+
 import AvatarComp from "./Avatar";
 import axios from "axios";
 import LoginPopup from "../Shared/LoginPopup";
+// import { useToast } from "../hooks/use-toast";
 
 export default function Header() {
-  const { ready, user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { theme } = useTheme();
   const navigate = useNavigate();
 
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const location = useLocation();
+  const hideExploreRoutes = ["/"];
+  const showExplore = hideExploreRoutes.includes(location.pathname);
+
+  // header for service pages
+  const servicePagesRoutes = ["/account", "/about", "/contact"];
+  const servicePages = servicePagesRoutes.includes(location.pathname);
 
   const categories = [
     {
@@ -86,15 +94,22 @@ export default function Header() {
     try {
       await axios.post("/logout");
       setUser(null); // Ensure this function updates your app's state
-      navigate("/login"); // Redirect to the login page
+      navigate("/"); // Redirect to the login page
     } catch (error) {
       console.error("Error logging out:", error);
     }
   }
 
+  // function toastMsg(title, msg) {
+  //   return toast({
+  //     title: title,
+  //     description: msg,
+  //   });
+  // }
+
   return (
     <>
-      <header className={`flex h-20 w-full flex-col gap-y-8 p-4 md:p-6 mb-8`}>
+      <header className={`flex h-20 w-full flex-col gap-y-8 p-4 md:p-6 `}>
         {/* Navbar Small Screen */}
         <Sheet>
           <div
@@ -151,7 +166,7 @@ export default function Header() {
             )}
           </div>
           <SheetContent side="left">
-            <Link href="#" className="mr-6 hidden lg:flex" prefetch={false}>
+            <Link to={""} className="mr-6 hidden lg:flex" prefetch={false}>
               <MountainIcon className="h-6 w-6" />
               <span className="sr-only">Acme Inc</span>
             </Link>
@@ -160,28 +175,28 @@ export default function Header() {
             </div>
             <div className="grid gap-2 py-6">
               <Link
-                href="#"
+                to={"/"}
                 className="flex w-full items-center py-2 text-lg font-semibold"
                 prefetch={false}
               >
-                Homme
+                Home
               </Link>
               <Link
-                href="#"
+                to={"/about"}
                 className="flex w-full items-center py-2 text-lg font-semibold"
-                prefetch={false}
+                // prefetch={false}
               >
                 About
               </Link>
               <Link
-                href="#"
+                to={"/faqs"}
                 className="flex w-full items-center py-2 text-lg font-semibold"
                 prefetch={false}
               >
-                Services
+                Faqs
               </Link>
               <Link
-                href="#"
+                to={"/contact"}
                 className="flex w-full items-center py-2 text-lg font-semibold"
                 prefetch={false}
               >
@@ -209,47 +224,50 @@ export default function Header() {
             <MountainIcon className="h-6 w-6" />
             <div className="text-xl font-semibold">Digs Findr</div>
           </Link>
+          {!servicePages && (
+            <>
+              <div
+                className={`relative items-center pr-4  w-1/4  rounded-xl  flex-row gap-3 border border-gray-300 ${
+                  !isScrolled && showExplore ? "hidden" : "flex"
+                }`}
+              >
+                <input
+                  className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none`}
+                  type="search"
+                  placeholder="Search"
+                />
 
-          <div
-            className={`relative items-center pr-4  w-1/4  rounded-xl  flex-row gap-3 border border-gray-300 ${
-              isScrolled === false ? "hidden" : "flex"
-            }`}
-          >
-            <input
-              className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none`}
-              type="search"
-              placeholder="Search"
-            />
+                <IoSearch className="cursor-pointer " />
 
-            <IoSearch className="cursor-pointer " />
-
-            <IoFilterOutline className="cursor-pointer" />
-          </div>
-
+                <IoFilterOutline className="cursor-pointer" />
+              </div>
+            </>
+          )}
           <div className="">
             <Link
-              href="#"
-              className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-              prefetch={false}
-            >
-              Add A Place
-            </Link>
-            <Link
-              href="#"
+              to={"/about"}
               className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
               prefetch={false}
             >
               About
             </Link>
-
             <Link
-              href="#"
+              to={"/contact"}
               className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
               prefetch={false}
             >
               Contact
             </Link>
+
+            <Link
+              to={"/faq"}
+              className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+              prefetch={false}
+            >
+              Faqs
+            </Link>
           </div>
+
           <div className=" flex flex-row items-center gap-x-6">
             {user ? (
               <div className="mr-4 flex flex-row items-center gap-x-2">
@@ -266,55 +284,59 @@ export default function Header() {
           </div>
         </nav>
 
-        <div className="flex flex-col  gap-y-8 items-center">
-          <div className="text-3xl font-extrabold">Explore places to rent.</div>
-
-          <div
-            className={`relative items-center pr-4  w-1/2  rounded-xl  flex-row gap-3 border border-gray-300 ${
-              isScrolled === true ? "hidden" : "flex"
-            }`}
-          >
-            <input
-              className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none ${
-                theme === "light" ? "bg-white" : "bg-gray-900"
-              }`}
-              type="search"
-              placeholder="Search"
-            />
-
-            <IoSearch className="cursor-pointer " />
-
-            <IoFilterOutline className="cursor-pointer" />
-          </div>
-
-          <div className=" gap-5 flex  flex-col  items-center  justify-center w-full  px-3  hover:text-neutral-800 transition cursor-pointer">
-            <div className="flex flex-row justify-between gap-x-16 truncate">
-              {categories.map(({ label, icon: IconComponent }) => (
-                <Link
-                  // to={label === "all" ? "/" : "/" + label}
-                  key={label}
-                  onClick={() =>
-                    setSelectedCategory(
-                      label === selectedCategory ? null : label
-                    )
-                  }
-                  className={`flex flex-row gap-x-2 justify-center items-center hover:border-b-2 hover:border-b-gray-400 border-b-2${
-                    label === selectedCategory
-                      ? " border-b-2 border-b-black"
-                      : " border-transparent"
-                  }`}
-                >
-                  <IconComponent size={16} />
-                  <div className=" font-light text-sm">
-                    {label.toString().charAt(0).toUpperCase() +
-                      label.substring(1)}
-                  </div>
-                </Link>
-              ))}
+        {showExplore && (
+          <div className="flex flex-col  gap-y-8 items-center">
+            <div className="text-3xl font-extrabold">
+              Explore places to rent.
             </div>
-            <div className=" absolute right-6 p-3  flex flex-row justify-between items-center "></div>
+
+            <div
+              className={`relative items-center pr-4  w-1/2  rounded-xl  flex-row gap-3 border border-gray-300 ${
+                isScrolled === true ? "hidden" : "flex"
+              }`}
+            >
+              <input
+                className={`rounded-xl  w-full py-2 px-4  shadow-sm focus:outline-none ${
+                  theme === "light" ? "bg-white" : "bg-gray-900"
+                }`}
+                type="search"
+                placeholder="Search"
+              />
+
+              <IoSearch className="cursor-pointer " />
+
+              <IoFilterOutline className="cursor-pointer" />
+            </div>
+
+            <div className=" gap-5 flex  flex-col  items-center  justify-center w-full  px-3  hover:text-neutral-800 transition cursor-pointer">
+              <div className="flex flex-row justify-between gap-x-16 truncate">
+                {categories.map(({ label, icon: IconComponent }) => (
+                  <Link
+                    // to={label === "all" ? "/" : "/" + label}
+                    key={label}
+                    onClick={() =>
+                      setSelectedCategory(
+                        label === selectedCategory ? null : label
+                      )
+                    }
+                    className={`flex flex-row gap-x-2 justify-center items-center hover:border-b-2 hover:border-b-gray-400 border-b-2${
+                      label === selectedCategory
+                        ? " border-b-2 border-b-black"
+                        : " border-transparent"
+                    }`}
+                  >
+                    <IconComponent size={16} />
+                    <div className=" font-light text-sm">
+                      {label.toString().charAt(0).toUpperCase() +
+                        label.substring(1)}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div className=" absolute right-6 p-3  flex flex-row justify-between items-center "></div>
+            </div>
           </div>
-        </div>
+        )}
       </header>
     </>
   );

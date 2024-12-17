@@ -36,6 +36,10 @@ import {
 } from "../ui/card";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import LoginToast from "./LoginToast";
+
+import { ToastAction } from "../ui/toast";
+import { useToast } from "../hooks/use-toast";
 
 export default function LoginPopup() {
   const [email, setEmail] = useState("");
@@ -48,15 +52,7 @@ export default function LoginPopup() {
   const [governmentID, setGovernmentID] = useState("");
   const [gender, setGender] = useState("");
   const [userAddress, setUserAddress] = useState("");
-
-  // const [registerOpen, setRegisterOpen] = useState(false);
-
-  // const handleRegisterOpen = () => {
-  //   setRegisterOpen(true);
-  // };
-  // const handleRegisterClose = () => {
-  //   setRegisterOpen(false);
-  // };
+  const { toast } = useToast();
 
   const registerUser = async (ev: any) => {
     ev.preventDefault();
@@ -77,15 +73,24 @@ export default function LoginPopup() {
     }
   };
 
+  function toastMsg(title: string, msg: string) {
+    return toast({
+      title: title,
+      description: msg,
+    });
+  }
+
   const loginFunc = async (ev: any) => {
     ev.preventDefault();
     try {
       const { data } = await axios.post("/login", { email, password });
       setUser(data);
-      alert("Login successful");
+
+      toastMsg(`Welcome back ${data.name}`, " Log in Successful");
+
       setRedirect(true);
     } catch (e) {
-      alert("Login Error");
+      toastMsg("Log in Error", "Please try again.");
     }
   };
 

@@ -24,6 +24,11 @@ import PlacesFormPage from "./pages/AccountPage/UserProperty/PlacesFormPage.jsx"
 import PlacePage from "./pages/Property/PlacePage.jsx";
 import HomePage from "./pages/Home/HomePage.jsx";
 import { ThemeProvider } from "./components/Providers/ThemeProvider.tsx";
+import { Toaster } from "./components/ui/toaster.tsx";
+import AboutPage from "./pages/About/AboutPage.tsx";
+import ContactUs from "./pages/Contact/Contact.tsx";
+import Faq from "./pages/Faq/Faq.tsx";
+import AccountIndex from "./pages/AccountPage/AccountIndex.tsx";
 // import { useEffect} from "react" ;
 
 axios.defaults.baseURL = "http://localhost:4000";
@@ -31,26 +36,36 @@ axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    // <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-    <UserContextProvider>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/digs_Findr" element={<Digs_Findr />} />
-          <Route path="/rental_Agencies" element={<Rental_Agencies />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/account/places" element={<PlacesPage />} />
-          <Route path="/account/places/new" element={<PlacesFormPage />} />
-          <Route path="/account/places/:id" element={<PlacesFormPage />} />
-          <Route path="/place/:id" element={<PlacePage />} />
-          <Route path="/account/bookings" element={<BookingsPage />} />
-          <Route path="/account/bookings/:id" element={<BookingPage />} />
-        </Route>
-      </Routes>
-    </UserContextProvider>
+    <>
+      <Toaster />
+      <UserContextProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/digs_Findr" element={<Digs_Findr />} />
+            <Route path="/rental_Agencies" element={<Rental_Agencies />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/account" element={<AccountIndex />} />
+            <Route path="/accountProfile" element={<AccountPage />} />
+            {/* <Route path="/account" element={<AccountPage />} /> */}
+
+            <Route path="/account/places" element={<PlacesPage />} />
+            <Route path="/account/places/new" element={<PlacesFormPage />} />
+            <Route path="/account/places/:id" element={<PlacesFormPage />} />
+            <Route path="/place/:id" element={<PlacePage />} />
+
+            <Route path="/account/bookings" element={<BookingsPage />} />
+
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/faq" element={<Faq />} />
+            {/* <Route path="/faqs" element={<BookingPage />} /> */}
+          </Route>
+        </Routes>
+      </UserContextProvider>
+    </>
     // </ThemeProvider>
   );
 }

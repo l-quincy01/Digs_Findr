@@ -58,15 +58,11 @@ export default function AccountProfile() {
   };
 
   return (
-    <Tabs defaultValue="account" className="w-full  ">
-      <TabsList className="grid w-full grid-cols-1">
-        <TabsTrigger value="accountProfile">Account Profile</TabsTrigger>
-      </TabsList>
-
-      <TabsContent value="accountProfile">
-        <Card>
+    <div className="flex flex-col items-start w-full space-x-6 px-6">
+      <div className="  text-3xl font-bold">Account</div>
+      <div className="flex flex-col items-center justify-center w-full">
+        <Card className="w-3/5">
           <CardHeader className=" flex items-center justify-center">
-            {/* <CardDescription>Sign into your account.</CardDescription> */}
             <AvatarCompProfile />
           </CardHeader>
 
@@ -179,7 +175,21 @@ export default function AccountProfile() {
             </Button>
           </CardFooter>
         </Card>
-      </TabsContent>
-    </Tabs>
+      </div>
+    </div>
+
+    // <Tabs defaultValue="account" className="w-full  ">
+    //   <TabsList className="grid w-full grid-cols-1">
+    //     <TabsTrigger value="accountProfile">Account Profile</TabsTrigger>
+    //   </TabsList>
+    //   <TabsContent value="accountProfile">
+
+    //   </TabsContent>
+
+    //   <TabsContent value="Your Accomodations">
+
+    //     </TabsContent>
+
+    // </Tabs>
   );
 }

@@ -39,26 +39,21 @@ export default function AccountPage() {
   }
 
   return (
-    <>
-      <div className="flex flex-row items-center justify-center ">
-        <div className=" w-full md:w-1/2  flex items-center justify-center">
-          <AccountProfile />
-        </div>
-      </div>
+    <div className="w-full">
+      <AccountProfile />
 
-      <div className="text-xl mt-10 font-semibold">Delete Your Account</div>
-      <div className="text-md text--gray-500 ">
-        {" "}
-        Request your account to be deleted here.
+      <div className="flex flex-col items-start justify-start w-full gap-y-4">
+        <div className="text-xl mt-10 font-semibold">Delete Your Account</div>
+        <div className="text-md ">Request your account to be deleted here.</div>
+        {subpage === "profile" && (
+          <div className="text-center max-w-lg ">
+            <Button onClick={logout} className="">
+              Delete Account
+            </Button>
+          </div>
+        )}
+        {subpage === "places" && <PlacesPage />}
       </div>
-      {subpage === "profile" && (
-        <div className="text-center max-w-lg mx-auto mt-5">
-          <Button onClick={logout} className="">
-            Delete Account
-          </Button>
-        </div>
-      )}
-      {subpage === "places" && <PlacesPage />}
-    </>
+    </div>
   );
 }
