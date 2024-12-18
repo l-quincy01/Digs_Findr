@@ -20,7 +20,8 @@ Additionally, it provides a platform for landlords to advertise their properties
 <img src="/screenshots/5Screenshot.png" width="50%" >
 <img src="/screenshots/6Screenshot.png" width="50%" >
 <img src="/screenshots/7Screenshot.png" width="50%" >
-<img src="/screenshots/7BScreenshot.png" width="50%" >
+<img src="/screenshots/7bScreenshot.png" width="50%" >
+<img src="/screenshots/7cScreenshot.png" width="50%" >
 <img src="/screenshots/8Screenshot.png" width="50%" >
 <img src="/screenshots/9Screenshot.png" width="50%" >
 <img src="/screenshots/10Screenshot.png" width="50%" >
