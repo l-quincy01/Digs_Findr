@@ -34,6 +34,5 @@ Additionally, it provides a platform for landlords to advertise their properties
 <img src="/screenshots/17Screenshot.png" width="50%" >
 <img src="/screenshots/18Screenshot.png" width="50%" >
 <img src="/screenshots/19Screenshot.png" width="50%" >
-<img src="/screenshots/20Screenshot.png" width="50%" >
 
 </div>
