@@ -13,19 +13,26 @@ Additionally, it provides a platform for landlords to advertise their properties
 ## Screenshots
 
 <div style="display:flex;" >
-<img src="/screenshots/1.png" width="50%" >
-<img src="/screenshots/2.png" width="50%" >
-<img src="/screenshots/3.png" width="50%" >
-<img src="/screenshots/4.png" width="50%" >
-<img src="/screenshots/5.png" width="50%" >
-<img src="/screenshots/6.png" width="50%" >
-<img src="/screenshots/6.png" width="50%" >
-<img src="/screenshots/7.png" width="50%" >
-<img src="/screenshots/8.png" width="50%" >
-<img src="/screenshots/8.png" width="50%" >
-<img src="/screenshots/9.png" width="50%" >
-<img src="/screenshots/10.png" width="50%" >
-<img src="/screenshots/11.png" width="50%" >
-<img src="/screenshots/12.png" width="50%" >
+<img src="/screenshots/1Screenshot.png" width="50%" >
+<img src="/screenshots/2Screenshot.png" width="50%" >
+<img src="/screenshots/3Screenshot.png" width="50%" >
+<img src="/screenshots/4Screenshot.png" width="50%" >
+<img src="/screenshots/5Screenshot.png" width="50%" >
+<img src="/screenshots/6Screenshot.png" width="50%" >
+<img src="/screenshots/7Screenshot.png" width="50%" >
+<img src="/screenshots/7BScreenshot.png" width="50%" >
+<img src="/screenshots/8Screenshot.png" width="50%" >
+<img src="/screenshots/9Screenshot.png" width="50%" >
+<img src="/screenshots/10Screenshot.png" width="50%" >
+<img src="/screenshots/11Screenshot.png" width="50%" >
+<img src="/screenshots/12Screenshot.png" width="50%" >
+<img src="/screenshots/13Screenshot.png" width="50%" >
+<img src="/screenshots/14Screenshot.png" width="50%" >
+<img src="/screenshots/15Screenshot.png" width="50%" >
+<img src="/screenshots/16Screenshot.png" width="50%" >
+<img src="/screenshots/17Screenshot.png" width="50%" >
+<img src="/screenshots/18Screenshot.png" width="50%" >
+<img src="/screenshots/19Screenshot.png" width="50%" >
+<img src="/screenshots/20Screenshot.png" width="50%" >
 
 </div>

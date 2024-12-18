@@ -82,11 +82,11 @@ export default function PropertyCards({
       </Link>
 
       <div className=" inset-x-0  w-full bottom-10 fixed  z-50  flex items-center justify-center">
-        <button className=" flex justify-center items-center gap-3 z-55 fixed bg-black text-white p-3 rounded-2xl ">
+        {/* <button className=" flex justify-center items-center gap-3 z-55 fixed bg-black text-white p-3 rounded-2xl ">
           <Link to="/map" className=" flex justify-center items-center gap-3">
             Show Map <IoMdMap />
           </Link>
-        </button>
+        </button> */}
       </div>
     </>
   );

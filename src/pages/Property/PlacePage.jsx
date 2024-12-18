@@ -38,7 +38,7 @@ import { FaRegUser } from "react-icons/fa";
 import { BsPersonLinesFill } from "react-icons/bs";
 import { FaRegBuilding } from "react-icons/fa";
 
-import Comments from "../../components/Comments";
+import Comments from "../../components/Comments.tsx";
 import { Button } from "../../components/ui/button";
 
 export default function PlacePage() {
@@ -78,6 +78,45 @@ export default function PlacePage() {
     "Exchange Student": BsPersonLinesFill,
     Other: FaRegUser,
   };
+
+  const commentsData = [
+    {
+      name: "Jane Doe",
+      campus: "University of Cape Town",
+      yearsOnDigsFindr: 2,
+      rating: 5,
+      date: "2024 Jan",
+      text: "Exceptional space with fantastic flatmates! I'm incredibly grateful for discovering this gem through Digs Findr.",
+      image: "https://randomuser.me/api/portraits/women/1.jpg",
+    },
+    {
+      name: "John Smith",
+      campus: "University of Pretoria",
+      yearsOnDigsFindr: 1,
+      rating: 4,
+      date: "2023 Dec",
+      text: "A great platform that made my accommodation search much easier. Highly recommend Digs Findr!",
+      image: "https://randomuser.me/api/portraits/men/1.jpg",
+    },
+    {
+      name: "Sarah Lee",
+      campus: "Stellenbosch University",
+      yearsOnDigsFindr: 3,
+      rating: 5,
+      date: "2024 Feb",
+      text: "Found a beautiful and affordable place close to campus. Thank you, Digs Findr!",
+      image: "https://randomuser.me/api/portraits/women/2.jpg",
+    },
+    {
+      name: "Michael Brown",
+      campus: "University of Johannesburg",
+      yearsOnDigsFindr: 2,
+      rating: 4,
+      date: "2024 Mar",
+      text: "Very convenient service for students! Helped me save so much time.",
+      image: "https://randomuser.me/api/portraits/men/2.jpg",
+    },
+  ];
 
   return (
     <div className="  mx-8  ">
@@ -159,10 +198,7 @@ export default function PlacePage() {
 
         <div className="border-t  pt-4">
           <div className="text-2xl mb-4">Comments Section</div>
-          <div className=" grid grid-cols-2 items-center justify-center gap-6 min-w-full  ">
-            <Comments amount={2} />
-            <Comments amount={2} />
-          </div>
+          <Comments commentsData={commentsData} />
         </div>
       </div>
     </div>
