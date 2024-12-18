@@ -309,7 +309,7 @@ export default function Header() {
             </div>
 
             <div className=" gap-5 flex  flex-col  items-center  justify-center w-full  px-3  hover:text-neutral-800 transition cursor-pointer">
-              <div className="flex flex-row justify-between gap-x-16 truncate">
+              {/* <div className="flex flex-row justify-between gap-x-16 truncate">
                 {categories.map(({ label, icon: IconComponent }) => (
                   <Link
                     // to={label === "all" ? "/" : "/" + label}
@@ -332,7 +332,7 @@ export default function Header() {
                     </div>
                   </Link>
                 ))}
-              </div>
+              </div> */}
               <div className=" absolute right-6 p-3  flex flex-row justify-between items-center "></div>
             </div>
           </div>

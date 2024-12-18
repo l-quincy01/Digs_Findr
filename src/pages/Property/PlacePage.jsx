@@ -134,7 +134,7 @@ export default function PlacePage() {
                 )
             )}
           </div>
-          <Button className=" border flex gap-2 items-center justify-center p-6 text-sm font-semibold">
+          <Button className="  flex items-center justify-center  text-sm font-semibold">
             Show all
           </Button>
           <h2 className="fonr-semibold text-md my-4 font-bold">

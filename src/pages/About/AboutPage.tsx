@@ -11,83 +11,60 @@ export default function AboutPage() {
       <div className="text-4xl font-bold ">About Us</div>
       <div className="flex flex-col space-y-4 text-lg">
         <span>
-          It all started in 2018 at the peak of the student accommodation
-          protests. Alexandria Procter, the boss lady, was sitting in her SRC
-          office in the Steve Biko building at the University of Cape Town
-          daydreaming about innovative ways to connect landlords who have empty
-          beds and students who needed accommodation. The solution she came up
-          with? An excel spreadsheet. She managed to convince Greg Keal to jump
-          on board, and DigsConnect Version 1 was born.
+          <strong>Digs Findr</strong> is a platform designed to make finding
+          student accommodation seamless and efficient. Our mission is to assist
+          students in finding their ideal accommodation near their universities
+          while providing landlords with an effective platform to connect with
+          tenants.
         </span>
         <span>
-          Fast forward to 2021. We are now the largest platform connecting young
-          people with the homes of their dreams on the African continent. We’ve
-          connected more than 50 000 people on our platform over the past 36
-          months and counting! The core value proposition hasn’t changed from
-          day 1, it’s just more user-friendly.
+          Built by students for students, <strong>Digs Findr</strong> simplifies
+          the accommodation search process, especially for students who are new
+          to a city or university. By web-scraping data from trusted local
+          rental agencies like Pam-Golding and Remax, we provide students with
+          real-time listings, eliminating the hassle of browsing multiple
+          websites.
         </span>
       </div>
 
       <div className="hidden md:flex flex-row space-x-8 items-center justify-center ">
-        <img className=" w-1/5 " src={cyclist} alt="" />
-        <img className=" w-1/5 " src={guitarist} alt="" />
-        <img className=" w-1/5 " src={runner} alt="" />
-        <img className=" w-1/5 " src={skater} alt="" />
+        <img className=" w-1/5 " src={cyclist} alt="Cyclist" />
+        <img className=" w-1/5 " src={guitarist} alt="Guitarist" />
+        <img className=" w-1/5 " src={runner} alt="Runner" />
+        <img className=" w-1/5 " src={skater} alt="Skater" />
       </div>
 
       <div className="flex flex-col space-y-4 text-lg">
-        <div className="text-xl font-semibold">How it Works</div>
+        <div className="text-xl font-semibold">How It Works</div>
 
         <span className="flex flex-row items-start justify-start gap-x-5">
-          <BiSearchAlt size={44} />
+          <BiSearchAlt size={26} />
           <div>
-            It all started in 2018 at the peak of the student accommodation
-            protests. Alexandria Procter, the boss lady, was sitting in her SRC
-            office in the Steve Biko building at the University of Cape Town
-            daydreaming about innovative ways to connect landlords who have
-            empty beds and students who needed accommodation.
+            Our platform aggregates listings by scraping trusted rental agency
+            websites and presenting them in an easy-to-navigate format. This
+            way, students save time and effort while exploring accommodation
+            options.
           </div>
         </span>
         <span className="flex flex-row items-start justify-start gap-x-5">
-          <PiBuildingApartmentLight size={44} />
+          <PiBuildingApartmentLight size={26} />
           <div>
-            It all started in 2018 at the peak of the student accommodation
-            protests. Alexandria Procter, the boss lady, was sitting in her SRC
-            office in the Steve Biko building at the University of Cape Town
-            daydreaming about innovative ways to connect landlords who have
-            empty beds and students who needed accommodation.
+            Landlords can effortlessly list their properties, targeting a
+            student audience looking for convenient and affordable housing near
+            their universities.
           </div>
         </span>
       </div>
+
       <div className="flex flex-col space-y-4 text-lg">
-        <div className="text-xl font-semibold">Our History</div>
+        <div className="text-xl font-semibold">Our Mission</div>
 
         <span>
-          Fast forward to 2021. We are now the largest platform connecting young
-          people with the homes of their dreams on the African continent. We’ve
-          connected more than 50 000 people on our platform over the past 36
-          months and counting! The core value proposition hasn’t changed from
-          day 1, it’s just more user-friendly. Landlords list their properties
-          on our website, and young people visit the website to send an enquiry
-          directly to the landlord.
-        </span>
-      </div>
-      <div className="flex flex-col space-y-4 text-lg">
-        <div className="text-xl font-semibold">Our Services</div>
-        <span>
-          <ul className="list-disc list-inside pl-5">
-            <li>The rent payer</li>
-            <li>The rent payer</li>
-            <li>The rent payer</li>
-            <li>The rent payer</li>
-          </ul>
-        </span>
-        <span>
-          Fast forward to 2021. We are now the largest platform connecting young
-          people with the homes of their dreams on the African continent. We’ve
-          connected more than 50 000 people on our platform over the past 36
-          months and counting! The core value proposition hasn’t changed from
-          day 1, it’s just more user-friendly.
+          Digs Findr aims to bridge the gap between students seeking
+          accommodation and landlords offering rental properties. By leveraging
+          technology and innovation, we strive to make the accommodation search
+          stress-free and efficient for students while maximizing visibility and
+          occupancy for landlords.
         </span>
       </div>
     </div>

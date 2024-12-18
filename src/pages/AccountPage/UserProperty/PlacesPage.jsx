@@ -19,16 +19,16 @@ export default function PlacesPage() {
 
   return (
     <div>
-      <AccountBreadcrumb title="Personal info" />
+      <AccountBreadcrumb title="Your Places" />
       <br />
-      List of all your added places
+      List of all your added places.
       <br />
       <div className="mt-4 cursor-pointer">
         {places.length > 0 &&
           places.map((place) => (
             <Link
               to={"/account/places/" + place._id}
-              className="mb-4  flex gap-4  p-4 rounded-2xl"
+              className="mb-4  flex gap-4   rounded-2xl"
               key={place._id}
             >
               <div className=" rounded-md flex file:w-32 h-32   shrink-0">
